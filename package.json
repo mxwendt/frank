@@ -1,0 +1,29 @@
+{
+	"name": "frank",
+	"version": "0.0.0",
+	"description": "An experimental css editor",
+	"main": "main.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/mxwendt/frank.git"
+	},
+	"keywords": [
+		"css",
+		"editor",
+		"visual",
+		"dx",
+		"human factors"
+	],
+	"author": "mxwendt",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/mxwendt/frank/issues"
+	},
+	"homepage": "https://github.com/mxwendt/frank#readme",
+	"devDependencies": {
+		"@angular/cli": "^8.3.20"
+	}
+}
