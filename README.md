@@ -1,1 +1,1 @@
-Data visualizations for frontend developers.
+An experimental css editor.
