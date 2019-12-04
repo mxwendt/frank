@@ -2,9 +2,19 @@
 
 body {
     max-width: 1400px;
+    width: 87.5%;
+    padding: 50px 0 50px 12.5%;
     margin: 0 auto;
-    background-color: #fffff8;
+    background-color: #EEEADD;
     font-family: "Hack", Arial, Helvetica, sans-serif;
     font-size: 16px;
     color: #111111;
+}
+
+li {
+    font-size: 12px;
+}
+
+.inherited {
+    color: #C4C4C4;
 }

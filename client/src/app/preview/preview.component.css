@@ -1,0 +1,19 @@
+:host {
+    display: block;
+    margin: 50px 0;
+}
+
+.canvas {
+    display: block;
+    width: 320px;
+    height: 480px;
+    background-color: #FFFFFF;
+    box-shadow: 0 0 4px 0 #11111125;
+}
+
+.caption {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 9px;
+    line-height: 12px;
+}
