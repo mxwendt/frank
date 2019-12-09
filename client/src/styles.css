@@ -1,5 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 
+:root {
+    --color-yellow: #F2C94C;
+    --color-light-grey: #E5E5E5;
+}
+
 body {
     max-width: 1400px;
     width: 87.5%;
