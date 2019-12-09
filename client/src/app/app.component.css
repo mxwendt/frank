@@ -3,6 +3,75 @@
     flex-wrap: wrap;
 }
 
+.vars {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: repeat(1fr);
+    align-content: start;
+    justify-content: start;
+    align-items: center;
+    justify-items: start;
+    column-gap: 30px;
+    row-gap: 0;
+}
+
+.var-prop {
+    grid-column-start: 1;
+    font-size: 12px;
+    line-height: 14px;
+    font-family: "Avenir Next", Arial, Helvetica, sans-serif;
+}
+
+.var-vals {
+    grid-column-start: 2;
+    display: flex;
+    align-items: center;
+}
+
+.vals {
+    display: flex;
+    order: 1;
+    padding: 10px 0;
+    border-bottom: 1px dotted #c4c4c4;
+}
+
+.var-new:hover ~ .vals {
+    border-bottom-style: solid;
+}
+
+.val {
+    font-size: 12px;
+}
+
+.val + .val {
+    margin-left: 20px;
+}
+
+.var-unit {
+    font-size: 10px;
+    margin-left: 3px;
+}
+
+.var-new {
+    order: 2;
+    margin-left: 20px;
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-color: var(--color-light-grey);
+    border: none;
+    text-align: center;
+    line-height: 20px;
+    border-radius: 3px;
+    font-family: "Avenir Next", Arial, Helvetica, sans-serif;
+}
+
+.var-new:hover {
+    cursor: pointer;
+    background-color: var(--color-yellow);
+    box-shadow: 0 0 4px 0 #E5E5E5;
+}
+
 .previews {
     display: flex;
 }
