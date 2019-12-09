@@ -4,8 +4,7 @@
     <div class="var-vals">
         <button class="var-new">+</button>
         <div class="vals">
-            <div class="val inherited">sans-serif</div>
-            <div class="val inherited">serif</div>
+            <div *ngFor="let fontFamily of (fontFamilies$ | async)" class="val inherited">{{ fontFamily.value }}</div>
         </div>
     </div>
 

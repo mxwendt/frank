@@ -4,7 +4,7 @@ import { Update } from '@ngrx/entity';
 import { FontFamily } from './font-family.model';
 
 export const loadFontFamilys = createAction(
-  '[FontFamily/API] Load FontFamilys', 
+  '[FontFamily/API] Load FontFamilys',
   props<{ fontFamilys: FontFamily[] }>()
 );
 
