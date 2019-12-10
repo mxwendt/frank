@@ -23,3 +23,4 @@ export const metaReducers: MetaReducer<State>[] = !environment.production ? [] :
 
 export const selectFontFamilyState = createFeatureSelector<fromFontFamily.State>(fromFontFamily.fontFamiliesFeatureKey);
 export const selectAllFontFamilies = createSelector(selectFontFamilyState, fromFontFamily.selectAll);
+export const selectFontFamilyTotal = createSelector(selectFontFamilyState, fromFontFamily.selectTotal);

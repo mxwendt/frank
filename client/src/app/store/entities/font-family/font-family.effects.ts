@@ -21,7 +21,8 @@ export class FontFamilyEffects {
         fontFamilies.forEach((fontFamily: string, index: number) => {
           fontFamilyEntites.push({
             id: index.toString(),
-            value: fontFamily
+            value: fontFamily,
+            defaultValue: true
           });
         });
 

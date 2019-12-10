@@ -2,9 +2,10 @@
 
     <div class="var-prop">font-family</div>
     <div class="var-vals">
-        <button class="var-new">+</button>
+        <button class="var-new" (click)="addNewFontFamily()">+</button>
         <div class="vals">
-            <div *ngFor="let fontFamily of (fontFamilies$ | async)" class="val inherited">{{ fontFamily.value }}</div>
+            <div *ngFor="let fontFamily of (fontFamilies$ | async)" class="val"
+                [ngClass]="{'inherited': fontFamily.defaultValue}">{{ fontFamily.value }}</div>
         </div>
     </div>
 
