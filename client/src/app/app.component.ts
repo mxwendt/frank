@@ -11,6 +11,8 @@ import { addFontFamily } from './store/entities/font-family/font-family.actions'
 import { map, takeLast, take, takeUntil } from 'rxjs/operators';
 import { FontSize } from './store/entities/font-size/font-size.model';
 import { LineHeight } from './store/entities/line-height/line-height.model';
+import { addFontSize } from './store/entities/font-size/font-size.actions';
+import { addLineHeight } from './store/entities/line-height/line-height.actions';
 
 @Component({
   selector: 'app-root',
@@ -68,13 +70,47 @@ export class AppComponent implements OnInit, OnDestroy {
     this.unsubscribe$.complete();
   }
 
-  addNewFontFamily() {
+  addNewFontFamily(input: HTMLInputElement) {
+    if (!input || input.value === '') return;
+
     this.store.dispatch(addFontFamily({
       fontFamily: {
         id: this.fontFamilyTotal.toString(),
-        value: '"Arial"',
+        value: `"${input.value}"`,
         defaultValue: false
       }
     }));
+
+    input.value = '';
+  }
+
+  addNewFontSize(input: HTMLInputElement) {
+    if (!input || input.value === '') return;
+
+    this.store.dispatch(addFontSize({
+      fontSize: {
+        id: this.fontSizeTotal.toString(),
+        value: parseInt(input.value, 10),
+        unit: 'px',
+        defaultValue: false
+      }
+    }));
+
+    input.value = '';
+  }
+
+  addNewLineHeight(input: HTMLInputElement) {
+    if (!input || input.value === '') return;
+
+    this.store.dispatch(addLineHeight({
+      lineHeight: {
+        id: this.lineHeightTotal.toString(),
+        value: parseFloat(input.value),
+        unit: 'em',
+        defaultValue: false
+      }
+    }));
+
+    input.value = '';
   }
 }

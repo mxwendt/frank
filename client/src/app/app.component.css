@@ -5,7 +5,7 @@
 
 .vars {
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: auto auto auto;
     grid-template-rows: repeat(1fr);
     align-content: start;
     justify-content: start;
@@ -23,14 +23,13 @@
 }
 
 .var-vals {
-    grid-column-start: 2;
+    grid-column-start: 3;
     display: flex;
     align-items: center;
 }
 
 .vals {
     display: flex;
-    order: 1;
     padding: 10px 0;
     border-bottom: 1px dotted #c4c4c4;
 }
@@ -53,22 +52,36 @@
 }
 
 .var-new {
-    order: 2;
-    margin-left: 20px;
+    grid-column-start: 2;
+    display: flex;
+}
+
+.var-new input {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #cbcbcb;
+    margin: 0;
+    padding: 5px 0;
+    font-family: Hack;
+    outline: none;
+}
+
+.var-new button {
     display: block;
-    width: 20px;
-    height: 20px;
-    background-color: var(--color-light-grey);
+    width: 25px;
+    height: 25px;
+    background-color: transparent;
     border: none;
     text-align: center;
     line-height: 20px;
-    border-radius: 3px;
+    border-radius: 0 3px 3px 0;
     font-family: "Avenir Next", Arial, Helvetica, sans-serif;
+    outline: none;
 }
 
-.var-new:hover {
+.var-new button:hover {
     cursor: pointer;
-    background-color: var(--color-yellow);
+    background-color: var(--color-light-grey);
     box-shadow: 0 0 4px 0 #E5E5E5;
 }
 
