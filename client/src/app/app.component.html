@@ -13,9 +13,9 @@
     <div class="var-vals">
         <button class="var-new">+</button>
         <div class="vals">
-            <div class="val">8<span class="var-unit">px</span></div>
-            <div class="val">12<span class="var-unit">px</span></div>
-            <div class="val">16<span class="var-unit">px</span></div>
+            <div *ngFor="let fontSize of (fontSizes$ | async)" class="val"
+                [ngClass]="{'inherited': fontSize.defaultValue}">
+                {{ fontSize.value }}<span *ngIf="fontSize.unit" class="var-unit">{{ fontSize.unit }}</span></div>
         </div>
     </div>
 
@@ -23,7 +23,9 @@
     <div class="var-vals">
         <button class="var-new">+</button>
         <div class="vals">
-            <div class="val">1.25<span class="var-unit">em</span></div>
+            <div *ngFor="let lineHeight of (lineHeights$ | async)" class="val"
+                [ngClass]="{'inherited': lineHeight.defaultValue}">
+                {{ lineHeight.value }}<span *ngIf="lineHeight.unit" class="var-unit">{{ lineHeight.unit }}</span></div>
         </div>
     </div>
 
