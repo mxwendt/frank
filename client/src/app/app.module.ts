@@ -13,13 +13,15 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 import { FontFamilyEffects } from './store/entities/font-family/font-family.effects';
+import { VariableEditorComponent } from './components/variable-editor/variable-editor.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PillComponent,
     PreviewComponent,
-    NodeComponent
+    NodeComponent,
+    VariableEditorComponent
   ],
   imports: [
     BrowserModule,

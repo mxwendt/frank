@@ -1,0 +1,41 @@
+<div class="vars">
+
+    <div class="var-prop">font-family</div>
+    <div class="var-new">
+        <input type="text" #fontFamilyInput>
+        <button (click)="addNewFontFamily(fontFamilyInput)">+</button>
+    </div>
+    <div class="var-vals">
+        <div class="vals">
+            <div *ngFor="let fontFamily of (fontFamilies$ | async)" class="val"
+                [ngClass]="{'inherited': fontFamily.defaultValue}">{{ fontFamily.value }}</div>
+        </div>
+    </div>
+
+    <div class="var-prop">font-size</div>
+    <div class="var-new">
+        <input type="text" #fontFizeInput>
+        <button (click)="addNewFontSize(fontFizeInput)">+</button>
+    </div>
+    <div class="var-vals">
+        <div class="vals">
+            <div *ngFor="let fontSize of (fontSizes$ | async)" class="val"
+                [ngClass]="{'inherited': fontSize.defaultValue}">
+                {{ fontSize.value }}<span *ngIf="fontSize.unit" class="var-unit">{{ fontSize.unit }}</span></div>
+        </div>
+    </div>
+
+    <div class="var-prop">line-height</div>
+    <div class="var-new">
+        <input type="text" #lineHeightInput>
+        <button (click)="addNewLineHeight(lineHeightInput)">+</button>
+    </div>
+    <div class="var-vals">
+        <div class="vals">
+            <div *ngFor="let lineHeight of (lineHeights$ | async)" class="val"
+                [ngClass]="{'inherited': lineHeight.defaultValue}">
+                {{ lineHeight.value }}<span *ngIf="lineHeight.unit" class="var-unit">{{ lineHeight.unit }}</span></div>
+        </div>
+    </div>
+
+</div>

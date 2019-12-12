@@ -1,0 +1,81 @@
+.vars {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: repeat(1fr);
+    align-content: start;
+    justify-content: start;
+    align-items: center;
+    justify-items: start;
+    column-gap: 30px;
+    row-gap: 0;
+}
+
+.var-prop {
+    grid-column-start: 1;
+    font-size: 12px;
+    line-height: 14px;
+    font-family: "Avenir Next", Arial, Helvetica, sans-serif;
+}
+
+.var-vals {
+    grid-column-start: 3;
+    display: flex;
+    align-items: center;
+}
+
+.vals {
+    display: flex;
+    padding: 10px 0;
+    border-bottom: 1px dotted #c4c4c4;
+}
+
+.var-new:hover ~ .vals {
+    border-bottom-style: solid;
+}
+
+.val {
+    font-size: 12px;
+}
+
+.val + .val {
+    margin-left: 20px;
+}
+
+.var-unit {
+    font-size: 10px;
+    margin-left: 3px;
+}
+
+.var-new {
+    grid-column-start: 2;
+    display: flex;
+}
+
+.var-new input {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #cbcbcb;
+    margin: 0;
+    padding: 5px 0;
+    font-family: Hack;
+    outline: none;
+}
+
+.var-new button {
+    display: block;
+    width: 25px;
+    height: 25px;
+    background-color: transparent;
+    border: none;
+    text-align: center;
+    line-height: 20px;
+    border-radius: 0 3px 3px 0;
+    font-family: "Avenir Next", Arial, Helvetica, sans-serif;
+    outline: none;
+}
+
+.var-new button:hover {
+    cursor: pointer;
+    background-color: var(--color-light-grey);
+    box-shadow: 0 0 4px 0 #E5E5E5;
+}
