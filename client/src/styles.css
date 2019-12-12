@@ -1,0 +1,25 @@
+/* You can add global styles to this file, and also import other style files */
+
+:root {
+    --color-yellow: #F2C94C;
+    --color-light-grey: #E5E5E5;
+}
+
+body {
+    max-width: 1400px;
+    width: 87.5%;
+    padding: 50px 0 50px 12.5%;
+    margin: 0 auto;
+    background-color: #EEEADD;
+    font-family: "Hack", Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    color: #111111;
+}
+
+li {
+    font-size: 12px;
+}
+
+.inherited {
+    color: #C4C4C4;
+}

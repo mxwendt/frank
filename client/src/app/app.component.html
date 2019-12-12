@@ -1,0 +1,111 @@
+<div class="vars">
+
+    <div class="var-prop">font-family</div>
+    <div class="var-vals">
+        <button class="var-new" (click)="addNewFontFamily()">+</button>
+        <div class="vals">
+            <div *ngFor="let fontFamily of (fontFamilies$ | async)" class="val"
+                [ngClass]="{'inherited': fontFamily.defaultValue}">{{ fontFamily.value }}</div>
+        </div>
+    </div>
+
+    <div class="var-prop">font-size</div>
+    <div class="var-vals">
+        <button class="var-new">+</button>
+        <div class="vals">
+            <div *ngFor="let fontSize of (fontSizes$ | async)" class="val"
+                [ngClass]="{'inherited': fontSize.defaultValue}">
+                {{ fontSize.value }}<span *ngIf="fontSize.unit" class="var-unit">{{ fontSize.unit }}</span></div>
+        </div>
+    </div>
+
+    <div class="var-prop">line-height</div>
+    <div class="var-vals">
+        <button class="var-new">+</button>
+        <div class="vals">
+            <div *ngFor="let lineHeight of (lineHeights$ | async)" class="val"
+                [ngClass]="{'inherited': lineHeight.defaultValue}">
+                {{ lineHeight.value }}<span *ngIf="lineHeight.unit" class="var-unit">{{ lineHeight.unit }}</span></div>
+        </div>
+    </div>
+
+</div>
+
+<!-- <div class="tabs">
+    <app-pill label="Animations"></app-pill>
+    <app-pill label="Backgrounds and Borders"></app-pill>
+    <app-pill label="Box Alignment"></app-pill>
+    <app-pill label="Basic User Interface"></app-pill>
+    <app-pill label="Color"></app-pill>
+    <app-pill label="Counter Styles"></app-pill>
+    <app-pill label="Custom Properties for Cascading Variables"></app-pill>
+    <app-pill label="Device Adaption"></app-pill>
+    <app-pill label="Exclusions"></app-pill>
+    <app-pill label="Fonts"></app-pill>
+</div>
+<div class="previews">
+    <app-preview width="width: 320px"></app-preview>
+</div>
+<div class="declarations">
+    <app-node selector="body"></app-node>
+    <div class="declaration">Arial,sans-serif</div>
+    <app-node selector="article"></app-node>
+    <div class="declaration inherited">Arial,sans-serif</div>
+    <app-node selector="aside"></app-node>
+    <div class="declaration inherited">Arial,sans-serif</div>
+    <app-node selector="footer"></app-node>
+    <div class="declaration inherited">Arial,sans-serif</div>
+    <app-node selector="header"></app-node>
+    <div class="declaration inherited">Arial,sans-serif</div>
+    <app-node selector="h1"></app-node>
+    <div class="declaration inherited">Arial,sans-serif</div>
+    <app-node selector="h2"></app-node>
+    <div class="declaration inherited">Arial,sans-serif</div>
+    <app-node selector="h3"></app-node>
+    <div class="declaration inherited">Arial,sans-serif</div>
+    <app-node selector="h4"></app-node>
+    <div class="declaration inherited">Arial,sans-serif</div>
+    <app-node selector="h5"></app-node>
+    <div class="declaration inherited">Arial,sans-serif</div>
+    <app-node selector="h6"></app-node>
+    <div class="declaration inherited">Arial,sans-serif</div>
+    <app-node selector="hgroup"></app-node>
+    <div class="declaration inherited">Arial,sans-serif</div>
+    <app-node selector="main"></app-node>
+    <div class="declaration inherited">Arial,sans-serif</div>
+    <app-node selector="nav"></app-node>
+    <div class="declaration inherited">Arial,sans-serif</div>
+    <app-node selector="section"></app-node>
+    <div class="declaration inherited">Arial,sans-serif</div>
+    <app-node selector="blockquote"></app-node>
+    <div class="declaration inherited">Arial,sans-serif</div>
+    <app-node selector="dir"></app-node>
+    <div class="declaration inherited">Arial,sans-serif</div>
+    <app-node selector="div"></app-node>
+    <div class="declaration inherited">Arial,sans-serif</div>
+    <app-node selector="dl"></app-node>
+    <div class="declaration inherited">Arial,sans-serif</div>
+    <app-node selector="dt"></app-node>
+    <div class="declaration inherited">Arial,sans-serif</div>
+    <app-node selector="dd"></app-node>
+    <div class="declaration inherited">Arial,sans-serif</div>
+    <app-node selector="figure"></app-node>
+    <div class="declaration inherited">Arial,sans-serif</div>
+    <app-node selector="figcaption"></app-node>
+    <div class="declaration inherited">Arial,sans-serif</div>
+    <app-node selector="hr"></app-node>
+    <div class="declaration inherited">Arial,sans-serif</div>
+    <app-node selector="ol"></app-node>
+    <div class="declaration inherited">Arial,sans-serif</div>
+    <app-node selector="li"></app-node>
+    <div class="declaration inherited">Arial,sans-serif</div>
+    <app-node selector="p"></app-node>
+    <div class="declaration inherited">Arial,sans-serif</div>
+    <app-node selector="pre"></app-node>
+    <div class="declaration inherited">Arial,sans-serif</div>
+    <app-node selector="ul"></app-node>
+    <div class="declaration inherited">Arial,sans-serif</div>
+    <app-node selector="li"></app-node>
+    <div class="declaration inherited">Arial,sans-serif</div>
+</div> -->
+<router-outlet></router-outlet>
