@@ -1,0 +1,108 @@
+import { Injectable } from '@angular/core';
+import { TokenStreamService } from './token-stream.service';
+
+
+/**
+ * The parser operates on a stream of toekns and  creates AST nodes as described
+ * in the file "AST.md".
+ */
+@Injectable()
+export class ParserService {
+
+	constructor(private tokenStream:TokenStreamService) { }
+
+	/**
+	 * Returns a sequence node (which is the whole program).
+	 */
+	private parseSequence() {
+		let program = [];
+
+		while (!this.tokenStream.eof()) {
+			// TODO: We really need to read statements, not only expressions
+			program.push(this.parseExpression());
+			if (!this.tokenStream.eof()) {
+				this.skipPunctuation(";");
+			}
+		}
+
+		return {
+			type: "program",
+			program: program
+		};
+	}
+
+	/**
+	 * Returns a function node.
+	 */
+	private parseFunction() {
+		return {
+			type: "function",
+			vars: this.delimited("(", ")", ",", this.parseVariableNames),
+			body: this.parseExpression()
+		};
+	}
+
+	/**
+	 * Returns an expression node.
+	 */
+	private parseExpression() {
+		return this.maybeCall(function () {
+			return this.maybeBinary(this.parseAtom(), 0);
+		});
+	}
+
+	private parseIf() {
+		
+	}
+
+	/**
+	 * Parses anything in between a start/stop token.
+	 */
+	private delimited(start: string, stop: string, separator: string, parser) {
+		let a: any[] = [];
+		let first: boolean = true;
+
+		this.skipPunctuation(start);
+
+		while (!this.tokenStream.eof()) {
+			if (this.isPunctuation(stop)) {
+				break;
+			}
+
+			if (first) {
+				first = false;
+			} else {
+				this.skipPunctuation(separator);
+			}
+			
+			if (this.isPunctuation(stop)) {
+				break;
+			}
+			
+			a.push(parser());
+		}
+
+		this.skipPunctuation(stop);
+
+		return a;
+	}
+
+	/**
+	 * Returns true if the next character in the token stream is a punctuation.
+	 */
+	private isPunctuation(character: string) {
+		let token = this.tokenStream.peek();
+		return token && token.type == "punctuation" && (!character || token.value == character);
+	}
+
+	/**
+	 * Skips a punctuation in the token stream.
+	 */
+	private skipPunctuation(character: string) {
+		if (this.isPunctuation(character)) {
+			this.tokenStream.next();
+		} else {
+			this.tokenStream.croak("Expecting punctuation: \"" + character + "\"");
+		}
+	}
+}

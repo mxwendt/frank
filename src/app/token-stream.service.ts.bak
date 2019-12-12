@@ -1,0 +1,278 @@
+import { Injectable } from '@angular/core';
+import { InputStreamService } from './input-stream.service';
+
+
+/**
+ * The token stream (also called tokenizer or lexer) operates on a character input stream
+ * and returns a stream object with the same interface, but the values returned by peek()
+ * and next() are tokens.
+ *
+ * A token is an object with two properties: type and value. Here are some examples with
+ * supported tokens:
+ *
+ * ```
+ * {type: "punctuation", value: "("} // parenthesis, comma, semicolon etc.
+ * {type: "number", value: 5}
+ * {type: "string", value: "Hello World!"}
+ * {type: "keyword", value: "function"}
+ * {type: "identifier", value: "a"}
+ * {type: "operator", value: "!="}
+ * ```
+ *
+ * Whitespace and commas are skipped over, no tokens are returned.
+ */
+@Injectable()
+export class TokenStreamService {
+
+	private currentToken: any = null;
+	private keywords: string = " var ";
+
+	constructor(private inputStream:InputStreamService) {}
+
+	/**
+	 * Initializes a new token stream.
+	 */
+	public init(input: string) {
+		this.inputStream.init(input);
+	}
+
+	/**
+	 * Returns the next token but without removing it from the token stream.
+	 */
+	public peek(): any {
+		return this.currentToken || (this.currentToken = this.readNext());
+	}
+
+	/**
+	 * Retuns the next token and also discards it from the token stream.
+	 */
+	public next(): any {
+		let token = this.currentToken;
+		this.currentToken = null;
+		return token || this.readNext();
+	}
+
+	/**
+	 * Returns true if and only if there are no more tokens in the token stream.
+	 */
+	public eof(): boolean {
+		return this.peek() == null;
+	}
+
+	/**
+	 * Throws error message.
+	 */
+	public croak(message: string) {
+		this.inputStream.croak(message);
+	}
+
+	/**
+	 * Decides what kind of token to read by peeking at the current character
+	 * of the input stream.
+	 *
+	 * 01. Skip over whitespace.
+	 * 02. Return null if the end of the input stream is reached.
+	 * 03. If it's a double forward slash, skip comment (retry after the end of line).
+	 * 04. If it's a forward slash and asterisk, skip comment.
+	 * 05. If it's a quote then read a string.
+	 * 06. If it's digit then proceed to read a number.
+	 * 07. If it's a letter then read an identifier or keyword.
+	 * 08. If it's one of the punctuation characters then return a punctuation token.
+	 * 09. If it's one of the operator characters then return a character token.
+	 * 10. If none of the above then error out.
+	 */
+	private readNext(): any {
+		this.readWhile(this.isWhitespace);
+		
+		if (this.inputStream.eof()) {
+			return null;
+		}
+
+		let character: string = this.inputStream.peek();
+
+		if (character == "//") {
+			this.skipLineComment();
+			return this.readNext();
+		}
+
+		// TODO: Implement block comment
+
+		if (character == "\"") {
+			return this.readString();
+		}
+
+		if (this.isDigit(character)) {
+			return this.readNumber();
+		}
+
+		if (this.isIdentityStart(character)) {
+			this.readIdentity();
+		}
+
+		if (this.isPunctuation(character)) {
+			return {
+				type: "punctuation",
+				value: this.inputStream.next()
+			};
+		}
+
+		if (this.isOperatorPart(character)) {
+			return {
+				type: "operator",
+				value: this.readWhile(this.isOperatorPart)
+			};
+		}
+
+		this.inputStream.croak("Can't handle character: " + character);
+	}
+
+	/**
+	 * Returns true if the passed identity is a keyword.
+	 */
+	private isKeyword(identity: string): boolean {
+		return this.keywords.indexOf(" " + identity + " ") >= 0;
+	}
+
+	/**
+	 * Returns true if the passed character is a digit.
+	 */
+	private isDigit(character: string): boolean {
+		return /[0-9]/i.test(character);
+	}
+
+	/**
+	 * Returns true if the passed character is a start of an identity.
+	 */
+	private isIdentityStart(character: string): boolean {
+		return /[a-z_$]/i.test(character);
+	}
+
+	/**
+	 * Returns true if the passed character is part of an identity.
+	 */
+	private isIdentityPart(character: string): boolean {
+		// TODO: Add all valid identity characters, maybe use this: https://github.com/mathiasbynens/mothereff.in/tree/master/js-variables
+		return this.isIdentityStart(character) || this.isDigit(character);
+	}
+
+	/**
+	 * Returns true if the passed character is part of an operator.
+	 */
+	private isOperatorPart(character: string): boolean {
+		return "+-*/%=!<>".indexOf(character) >= 0;
+	}
+
+	/**
+	 * Returns true if the passed character is a punctuation.
+	 */
+	private isPunctuation(character: string): boolean {
+		return ",;(){}[]".indexOf(character) >= 0;
+	}
+
+	/**
+	 * Returns true if the passed character is a whitespace.
+	 */
+	private isWhitespace(character: string): boolean {
+		return " \t\n".indexOf(character) >= 0;
+	}
+
+	/**
+	 * Skips line comments.
+	 */
+	private skipLineComment() {
+		this.readWhile(function (character: string) {
+			return character != "\n";
+		});
+		this.inputStream.next();
+	}
+
+	/**
+	 * Returns a string token.
+	 */
+	private readString() {
+		return {
+			type: "string",
+			value: this.readEscaped("\"") // TODO: Make sure this can used instead of '"'
+		};
+	}
+
+	/**
+	 * Returns a number token.
+	 */
+	private readNumber() {
+		let hasDot: boolean = false;
+
+		let input = this.readWhile(function (character: string) {
+			if (character == ".") {
+				if (hasDot) {
+					return false;
+				} else {
+					hasDot = true;
+				}
+				return true;
+			}
+			
+			return this.isDigit(character);
+		});
+
+		return {
+			type: "number",
+			value: parseFloat(input)
+		};
+	}
+
+	/**
+	 * Returns a keyword or identifier token.
+	 */
+	private readIdentity() {
+		let input: string = this.readWhile(this.isIdentityPart);
+
+		return {
+			type: this.isKeyword(input) ? "keyword" : "identifier",
+			value: input
+		};
+	}
+
+	/**
+	 * Returns a multicharacter string from the input stream.
+	 */
+	private readWhile(predicateFunc) {
+		let input = "";
+
+		while (!this.inputStream.eof() && predicateFunc(this.inputStream.peek())) {
+			input += this.inputStream.next();
+		}
+
+		return input;
+	}
+
+	/**
+	 * Reads characters, including escaped characters, between a start and an end character of 
+	 * the input stream - i.e. to read quotes.
+	 * 
+	 * @param endCharacter {string} denotes the character until the input stream should be read.
+	 */
+	private readEscaped(endCharacter: string) {
+		let escaped: boolean = false;
+		let input: string = "";
+
+		this.inputStream.next();
+
+		while (!this.inputStream.eof()) {
+			let character = this.inputStream.next();
+
+			if (escaped) {
+				input += character;
+				escaped = false;
+			} else if (character == "\\") {
+				escaped = true;
+			} else if (character == endCharacter) {
+				break;
+			} else {
+				input += character;
+			}
+		}
+
+		return input;
+	}
+}
