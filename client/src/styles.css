@@ -1,21 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
 
 :root {
+    --color-white: #fffff8;
+    --color-black: #111111;
     --color-yellow: #F2C94C;
     --color-light-grey: #E5E5E5;
 
     --font-avenir-next: "Avenir Next", Arial, Helvetica, sans-serif;
+    --effect-box-shadow: 0 0 4px 0 #11111125;
 }
 
 body {
     max-width: 1400px;
     width: 87.5%;
-    padding: 50px 0 50px 12.5%;
+    padding: 80px 0 50px 12.5%;
     margin: 0 auto;
-    background-color: #fffff8;
+    background-color: var(--color-white);
     font-family: "Hack", Arial, Helvetica, sans-serif;
     font-size: 16px;
-    color: #111111;
+    color: var(--color-black);
 }
 
 p {

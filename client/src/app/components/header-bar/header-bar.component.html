@@ -1,0 +1,4 @@
+<nav>
+    <a routerLink="/variables" routerLinkActive="active" [class.is-selected]="selectedNavItem === 'variables'" (click)="setSelected('variables')">Variables</a>
+    <a routerLink="/editor" routerLinkActive="active" [class.is-selected]="selectedNavItem === 'editor'" (click)="setSelected('editor')">Editor</a>
+</nav>

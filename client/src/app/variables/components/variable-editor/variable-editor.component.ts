@@ -17,7 +17,7 @@ import { addFontVariant } from 'src/app/store/entities/font-variant/font-variant
 import { addFontWeight } from 'src/app/store/entities/font-weight/font-weight.actions';
 import { addLineHeight } from 'src/app/store/entities/line-height/line-height.actions';
 
-import * as fromRoot from '../../store/reducers';
+import * as fromRoot from '../../../store/reducers';
 
 @Component({
   selector: 'app-variable-editor',

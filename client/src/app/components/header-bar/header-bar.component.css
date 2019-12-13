@@ -1,0 +1,42 @@
+:host {
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100vw;
+    background-color: var(--color-light-grey);
+    padding: 10px 0;
+}
+
+nav {
+    display: flex;
+    background-color: var(--color-white);
+    border-radius: 5px;
+}
+
+nav a {
+    display: flex;
+    padding: 6px 10px;
+    text-decoration: none;
+    font-family: var(--font-avenir-next);
+    font-size: 12px;
+    line-height: 16px;
+    color: var(--color-black);
+    border: 1px solid var(--color-light-grey);
+    cursor: default;
+}
+
+nav a:first-child {
+    border-radius: 5px 0 0 5px;
+    border-right: none;
+}
+
+nav a:last-child {
+    border-radius: 0 5px 5px 0;
+}
+
+nav a.is-selected {
+    background-color: var(--color-yellow);
+}

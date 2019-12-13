@@ -13,7 +13,7 @@
     display: block;
     width: 7px;
     height: 7px;
-    background-color: #111111;
+    background-color: var(--color-black);
     border-radius: 90%;
     position: absolute;
     top: 3px;

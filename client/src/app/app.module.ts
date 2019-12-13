@@ -1,22 +1,23 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-
 import { AppRoutingModule } from './app-routing.module';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { EffectsModule } from '@ngrx/effects';
+
 import { AppComponent } from './app.component';
 import { PillComponent } from './components/pill/pill.component';
 import { PreviewComponent } from './components/preview/preview.component';
 import { NodeComponent } from './components/node/node.component';
-import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './store/reducers';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
-import { EffectsModule } from '@ngrx/effects';
 import { FontFamilyEffects } from './store/entities/font-family/font-family.effects';
-import { VariableEditorComponent } from './components/variable-editor/variable-editor.component';
-import * as fromFontStyle from './store/entities/font-style/font-style.reducer';
-import * as fromFontVariant from './store/entities/font-variant/font-variant.reducer';
-import * as fromFontWeight from './store/entities/font-weight/font-weight.reducer';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { VariablesModule } from './variables/variables.module';
+import { EditorModule } from './editor/editor.module';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { HeaderBarComponent } from './components/header-bar/header-bar.component';
 
 @NgModule({
   declarations: [
@@ -24,9 +25,13 @@ import * as fromFontWeight from './store/entities/font-weight/font-weight.reduce
     PillComponent,
     PreviewComponent,
     NodeComponent,
-    VariableEditorComponent
+    PageNotFoundComponent,
+    DashboardComponent,
+    HeaderBarComponent
   ],
   imports: [
+
+    // import vendor modules
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
@@ -38,7 +43,12 @@ import * as fromFontWeight from './store/entities/font-weight/font-weight.reduce
       }
     }),
     EffectsModule.forRoot([FontFamilyEffects]),
-    !environment.production ? StoreDevtoolsModule.instrument() : []
+    !environment.production ? StoreDevtoolsModule.instrument() : [],
+    
+    // import app modules
+    VariablesModule,
+    EditorModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
