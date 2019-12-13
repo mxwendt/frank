@@ -1,16 +1,23 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
-import { LineHeight } from 'src/app/store/entities/line-height/line-height.model';
-import { FontSize } from 'src/app/store/entities/font-size/font-size.model';
-import { FontFamily } from 'src/app/store/entities/font-family/font-family.model';
-
-import * as fromRoot from '../../store/reducers';
 import { Store, select } from '@ngrx/store';
-import { loadDefaultValues } from 'src/app/store/actions/vars.actions';
 import { takeUntil } from 'rxjs/operators';
+
+import { loadDefaultValues } from 'src/app/store/actions/vars.actions';
+import { FontFamily } from 'src/app/store/entities/font-family/font-family.model';
+import { FontSize } from 'src/app/store/entities/font-size/font-size.model';
+import { FontStyle } from 'src/app/store/entities/font-style/font-style.model';
+import { FontVariant } from 'src/app/store/entities/font-variant/font-variant.model';
+import { FontWeight } from 'src/app/store/entities/font-weight/font-weight.model';
+import { LineHeight } from 'src/app/store/entities/line-height/line-height.model';
 import { addFontFamily } from 'src/app/store/entities/font-family/font-family.actions';
 import { addFontSize } from 'src/app/store/entities/font-size/font-size.actions';
+import { addFontStyle } from 'src/app/store/entities/font-style/font-style.actions';
+import { addFontVariant } from 'src/app/store/entities/font-variant/font-variant.actions';
+import { addFontWeight } from 'src/app/store/entities/font-weight/font-weight.actions';
 import { addLineHeight } from 'src/app/store/entities/line-height/line-height.actions';
+
+import * as fromRoot from '../../store/reducers';
 
 @Component({
   selector: 'app-variable-editor',
@@ -26,12 +33,24 @@ export class VariableEditorComponent implements OnInit, OnDestroy {
 
   fontSizes$: Observable<FontSize[]>;
   fontSizeTotal$: Observable<number>;
+  
+  fontStyles$: Observable<FontStyle[]>;
+  fontStyleTotal$: Observable<number>;
+
+  fontVariants$: Observable<FontVariant[]>;
+  fontVariantTotal$: Observable<number>;
+
+  fontWeights$: Observable<FontWeight[]>;
+  fontWeightTotal$: Observable<number>;
 
   lineHeights$: Observable<LineHeight[]>;
   lineHeightTotal$: Observable<number>;
 
   private fontFamilyTotal: number;
   private fontSizeTotal: number;
+  private fontStyleTotal: number;
+  private fontVariantTotal: number;
+  private fontWeightTotal: number;
   private lineHeightTotal: number;
 
   constructor(
@@ -49,6 +68,24 @@ export class VariableEditorComponent implements OnInit, OnDestroy {
       select(fromRoot.selectFontSizeTotal),
       takeUntil(this.unsubscribe$)
     );
+    
+    this.fontStyles$ = this.store.pipe(select(fromRoot.selectAllFontStyles));
+    this.fontStyleTotal$ = this.store.pipe(
+      select(fromRoot.selectFontStyleTotal),
+      takeUntil(this.unsubscribe$)
+    );
+
+    this.fontVariants$ = this.store.pipe(select(fromRoot.selectAllFontVariants));
+    this.fontVariantTotal$ = this.store.pipe(
+      select(fromRoot.selectFontVariantTotal),
+      takeUntil(this.unsubscribe$)
+    );
+
+    this.fontWeights$ = this.store.pipe(select(fromRoot.selectAllFontWeights));
+    this.fontWeightTotal$ = this.store.pipe(
+      select(fromRoot.selectFontWeightTotal),
+      takeUntil(this.unsubscribe$)
+    );
 
     this.lineHeights$ = this.store.pipe(select(fromRoot.selectAllLineHeights));
     this.lineHeightTotal$ = this.store.pipe(
@@ -60,6 +97,9 @@ export class VariableEditorComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.fontFamilyTotal$.subscribe((total: number) => this.fontFamilyTotal = total);
     this.fontSizeTotal$.subscribe((total: number) => this.fontSizeTotal = total);
+    this.fontStyleTotal$.subscribe((total: number) => this.fontStyleTotal = total);
+    this.fontVariantTotal$.subscribe((total: number) => this.fontVariantTotal = total);
+    this.fontWeightTotal$.subscribe((total: number) => this.fontWeightTotal = total);
     this.lineHeightTotal$.subscribe((total: number) => this.lineHeightTotal = total);
   }
 
@@ -90,6 +130,48 @@ export class VariableEditorComponent implements OnInit, OnDestroy {
         id: this.fontSizeTotal.toString(),
         value: parseInt(input.value, 10),
         unit: 'px',
+        defaultValue: false
+      }
+    }));
+
+    input.value = '';
+  }
+
+  addNewFontStyle(input: HTMLInputElement) {
+    if (!input || input.value === '') return;
+
+    this.store.dispatch(addFontStyle({
+      fontStyle: {
+        id: this.fontStyleTotal.toString(),
+        value: input.value,
+        defaultValue: false
+      }
+    }));
+
+    input.value = '';
+  }
+
+  addNewFontVariant(input: HTMLInputElement) {
+    if (!input || input.value === '') return;
+
+    this.store.dispatch(addFontVariant({
+      fontVariant: {
+        id: this.fontVariantTotal.toString(),
+        value: input.value,
+        defaultValue: false
+      }
+    }));
+
+    input.value = '';
+  }
+
+  addNewFontWeight(input: HTMLInputElement) {
+    if (!input || input.value === '') return;
+
+    this.store.dispatch(addFontWeight({
+      fontWeight: {
+        id: this.fontWeightTotal.toString(),
+        value: input.value,
         defaultValue: false
       }
     }));

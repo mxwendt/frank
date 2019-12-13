@@ -14,6 +14,9 @@ import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 import { FontFamilyEffects } from './store/entities/font-family/font-family.effects';
 import { VariableEditorComponent } from './components/variable-editor/variable-editor.component';
+import * as fromFontStyle from './store/entities/font-style/font-style.reducer';
+import * as fromFontVariant from './store/entities/font-variant/font-variant.reducer';
+import * as fromFontWeight from './store/entities/font-weight/font-weight.reducer';
 
 @NgModule({
   declarations: [

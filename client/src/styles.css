@@ -3,6 +3,8 @@
 :root {
     --color-yellow: #F2C94C;
     --color-light-grey: #E5E5E5;
+
+    --font-avenir-next: "Avenir Next", Arial, Helvetica, sans-serif;
 }
 
 body {
@@ -14,6 +16,17 @@ body {
     font-family: "Hack", Arial, Helvetica, sans-serif;
     font-size: 16px;
     color: #111111;
+}
+
+p {
+    font-family: var(--font-avenir-next);
+    font-size: 12px;
+}
+
+@media screen and (min-width: 760px) {
+    p {
+        max-width: 55%;
+    }
 }
 
 li {

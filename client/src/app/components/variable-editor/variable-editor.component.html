@@ -1,3 +1,5 @@
+<h2 class="label">CSS Fonts</h2>
+
 <div class="vars">
 
     <div class="var-prop">font-family</div>
@@ -22,6 +24,45 @@
             <div *ngFor="let fontSize of (fontSizes$ | async)" class="val"
                 [ngClass]="{'inherited': fontSize.defaultValue}">
                 {{ fontSize.value }}<span *ngIf="fontSize.unit" class="var-unit">{{ fontSize.unit }}</span></div>
+        </div>
+    </div>
+
+    <div class="var-prop">font-style</div>
+    <div class="var-new">
+        <input type="text" #fontStyleInput>
+        <button (click)="addNewFontStyle(fontStyleInput)">+</button>
+    </div>
+    <div class="var-vals">
+        <div class="vals">
+            <div *ngFor="let fontStyle of (fontStyles$ | async)" class="val"
+                [ngClass]="{'inherited': fontStyle.defaultValue}">
+                {{ fontStyle.value }}<span *ngIf="fontStyle.unit" class="var-unit">{{ fontStyle.unit }}</span></div>
+        </div>
+    </div>
+
+    <div class="var-prop">font-variant</div>
+    <div class="var-new">
+        <input type="text" #fontVariantInput>
+        <button (click)="addNewFontVariant(fontVariantInput)">+</button>
+    </div>
+    <div class="var-vals">
+        <div class="vals">
+            <div *ngFor="let fontVariant of (fontVariants$ | async)" class="val"
+                [ngClass]="{'inherited': fontVariant.defaultValue}">
+                {{ fontVariant.value }}<span *ngIf="fontVariant.unit" class="var-unit">{{ fontVariant.unit }}</span></div>
+        </div>
+    </div>
+
+    <div class="var-prop">font-weight</div>
+    <div class="var-new">
+        <input type="text" #fontWeightInput>
+        <button (click)="addNewFontWeight(fontWeightInput)">+</button>
+    </div>
+    <div class="var-vals">
+        <div class="vals">
+            <div *ngFor="let fontWeight of (fontWeights$ | async)" class="val"
+                [ngClass]="{'inherited': fontWeight.defaultValue}">
+                {{ fontWeight.value }}<span *ngIf="fontWeight.unit" class="var-unit">{{ fontWeight.unit }}</span></div>
         </div>
     </div>
 

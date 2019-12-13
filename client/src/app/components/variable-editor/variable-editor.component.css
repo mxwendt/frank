@@ -1,3 +1,18 @@
+:host {
+    display: block;
+}
+
+.label {
+    width: 10%;
+    float: left;
+    margin: 0 0 0 -12.5%;
+    padding: 6px 0 7px 0;
+    position: sticky;
+    top: 0;
+    font-size: 16px;
+    font-family: var(--font-avenir-next);
+}
+
 .vars {
     display: grid;
     grid-template-columns: auto auto auto;
@@ -14,7 +29,7 @@
     grid-column-start: 1;
     font-size: 12px;
     line-height: 14px;
-    font-family: "Avenir Next", Arial, Helvetica, sans-serif;
+    font-family: var(--font-avenir-next);
 }
 
 .var-vals {
@@ -70,7 +85,7 @@
     text-align: center;
     line-height: 20px;
     border-radius: 0 3px 3px 0;
-    font-family: "Avenir Next", Arial, Helvetica, sans-serif;
+    font-family: var(--font-avenir-next);
     outline: none;
 }
 

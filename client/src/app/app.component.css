@@ -28,3 +28,7 @@ app-node {
     font-size: 12px;
     line-height: 14px;
 }
+
+app-variable-editor + app-variable-editor {
+    margin-top: 30px;
+}
