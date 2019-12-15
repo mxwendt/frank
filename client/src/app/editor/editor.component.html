@@ -10,36 +10,12 @@
 
     <ng-container *ngFor="let baseElement of (baseElements$ | async)">
         <app-node [selector]="baseElement.selector"></app-node>
-        <div class="declaration font-family">
-            <select [name]="baseElement.declarations.fonts.fontFamily" [id]="baseElement.id">
-                <option *ngFor="let fontFamily of (fontFamilies$ | async)">{{ fontFamily.value }}</option>
-            </select>
-        </div>
-        <div class="declaration font-size">
-            <select [name]="baseElement.declarations.fonts.fontSize" [id]="baseElement.id">
-                <option *ngFor="let fontSize of (fontSizes$ | async)">{{ fontSize.value }}</option>
-            </select>
-        </div>
-        <div class="declaration font-style">
-            <select [name]="baseElement.declarations.fonts.fontStyle" [id]="baseElement.id">
-                <option *ngFor="let fontStyle of (fontStyles$ | async)">{{ fontStyle.value }}</option>
-            </select>
-        </div>
-        <div class="declaration font-variant">
-            <select [name]="baseElement.declarations.fonts.fontVariant" [id]="baseElement.id">
-                <option *ngFor="let fontVariant of (fontVariants$ | async)">{{ fontVariant.value }}</option>
-            </select>
-        </div>
-        <div class="declaration font-weight">
-            <select [name]="baseElement.declarations.fonts.fontWeight" [id]="baseElement.id">
-                <option *ngFor="let fontWeight of (fontWeights$ | async)">{{ fontWeight.value }}</option>
-            </select>
-        </div>
-        <div class="declaration line-height">
-            <select [name]="baseElement.declarations.fonts.lineHeight" [id]="baseElement.id">
-                <option *ngFor="let lineHeight of (lineHeights$ | async)">{{ lineHeight.value }}</option>
-            </select>
-        </div>
+        <app-declaration [prop]="baseElement.declarations.fonts.fontFamily" [values]="fontFamilyValues" class="font-family"></app-declaration>
+        <app-declaration [prop]="baseElement.declarations.fonts.fontSize" [values]="fontSizeValues" class="font-size"></app-declaration>
+        <app-declaration [prop]="baseElement.declarations.fonts.fontStyle" [values]="fontStyleValues" class="font-style"></app-declaration>
+        <app-declaration [prop]="baseElement.declarations.fonts.fontVariant" [values]="fontVariantValues" class="font-variant"></app-declaration>
+        <app-declaration [prop]="baseElement.declarations.fonts.fontWeight" [values]="fontWeightValues" class="font-weight"></app-declaration>
+        <app-declaration [prop]="baseElement.declarations.fonts.lineHeight" [values]="lineHeightValues" class="line-height"></app-declaration>
     </ng-container>
     
     <!-- <app-node selector="body"></app-node>
