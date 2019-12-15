@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
 import { Subject, Observable } from 'rxjs';
 import { Store, select } from '@ngrx/store';
+import { takeUntil } from 'rxjs/operators';
 
 import { BaseElements } from '../store/entities/nodes/base-elements/base-elements.model';
 import { FontFamily } from '../store/entities/font-family/font-family.model';
@@ -11,7 +12,9 @@ import { FontWeight } from '../store/entities/font-weight/font-weight.model';
 import { LineHeight } from '../store/entities/line-height/line-height.model';
 
 import * as fromRoot from '../store/reducers';
-import { takeUntil } from 'rxjs/operators';
+import { Update } from '@ngrx/entity';
+import { updateFontFamily } from '../store/entities/font-family/font-family.actions';
+import { updateBaseElements } from '../store/entities/nodes/base-elements/base-elements.actions';
 
 @Component({
   selector: 'app-editor',
@@ -110,6 +113,50 @@ export class EditorComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
+  }
+
+  updateElement(id: string, element: BaseElements, type: string) {
+    let fontProp = null;
+
+    switch (type) {
+      case 'fontFamily':
+        fontProp = {fontFamily: id}
+        break;
+      case 'fontSize':
+        fontProp = {fontSize: id}
+        break;
+      case 'fontStyle':
+        fontProp = {fontStyle: id}
+        break;
+      case 'fontVariant':
+        fontProp = {fontVariant: id}
+        break;
+      case 'fontWeight':
+        fontProp = {fontWeight: id}
+        break;
+      case 'lineHeight':
+        fontProp = {lineHeight: id}
+        break;
+    
+      default:
+        break;
+    }
+
+    if (fontProp === null) return;
+
+    const update: Update<BaseElements> = {
+      id: element.id,
+      changes: {
+        declarations: {
+          fonts: {
+            ...element.declarations.fonts,
+            ...fontProp
+          }
+        }
+      }
+    };
+
+    this.store.dispatch(updateBaseElements({baseElements: update}))
   }
 
 }

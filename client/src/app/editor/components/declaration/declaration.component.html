@@ -1,4 +1,4 @@
 <div (click)="toggleEditMode()">{{ selectedValue }}</div>
 <ul *ngIf="editMode" class="value-overlay">
-    <li *ngFor="let value of values" (click)="updateValue(value)">{{ value }}</li>
+    <li *ngFor="let value of values; let i = index" (click)="updateValue(value, i)">{{ value }}</li>
 </ul>

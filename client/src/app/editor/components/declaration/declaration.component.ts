@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectionStrategy, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-declaration',
@@ -8,8 +8,9 @@ import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core
 })
 export class DeclarationComponent implements OnInit {
 
-  @Input() prop: string;
   @Input() values: string[] | number[];
+  @Input() initialValue: string;
+  @Output() onUpdate = new EventEmitter<string>();
 
   editMode: boolean;
   selectedValue: string | number;
@@ -18,16 +19,17 @@ export class DeclarationComponent implements OnInit {
   
   ngOnInit() {
     this.editMode = false;
-    this.selectedValue = this.values[0];
+    this.selectedValue = this.values[this.initialValue];
   }
 
   toggleEditMode() {
     this.editMode = !this.editMode;
   }
 
-  updateValue(value: string | number) {
+  updateValue(value: string | number, index: number) {
     this.selectedValue = value;
     this.editMode = false;
+    this.onUpdate.emit(index.toString());
   }
 
 }
