@@ -11,8 +11,23 @@ export class DeclarationComponent implements OnInit {
   @Input() prop: string;
   @Input() values: string[] | number[];
 
-  constructor() {}
+  editMode: boolean;
+  selectedValue: string | number;
 
-  ngOnInit() {}
+  constructor() {}
+  
+  ngOnInit() {
+    this.editMode = false;
+    this.selectedValue = this.values[0];
+  }
+
+  toggleEditMode() {
+    this.editMode = !this.editMode;
+  }
+
+  updateValue(value: string | number) {
+    this.selectedValue = value;
+    this.editMode = false;
+  }
 
 }

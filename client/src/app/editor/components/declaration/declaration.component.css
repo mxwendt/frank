@@ -1,4 +1,31 @@
 :host {
     font-size: 12px;
     line-height: 14px;
+    cursor: pointer;
+    position: relative;
+}
+
+ul.value-overlay {
+    position: absolute;
+    top: -5px;
+    left: -15px;
+    z-index: 1;
+    background-color: white;
+    box-shadow: var(--effect-box-shadow);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul.value-overlay > li {
+    white-space: nowrap;
+    padding: 5px 15px;
+}
+
+ul.value-overlay > li:hover {
+    background-color: var(--color-yellow);
+}
+
+ul.value-overlay > li + li {
+    border-top: 1px dotted var(--color-light-grey);
 }
