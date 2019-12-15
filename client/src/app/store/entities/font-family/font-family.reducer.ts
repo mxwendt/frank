@@ -23,27 +23,27 @@ export const initialState: State = adapter.getInitialState({
       defaultValue: true
     },
     '1': {
-      id: '0',
+      id: '1',
       value: 'sans-serif',
       defaultValue: true
     },
     '2': {
-      id: '0',
+      id: '2',
       value: 'monospace',
       defaultValue: true
     },
     '3': {
-      id: '0',
+      id: '3',
       value: 'cursive',
       defaultValue: true
     },
     '4': {
-      id: '0',
+      id: '4',
       value: 'fantasy',
       defaultValue: true
     },
     '5': {
-      id: '0',
+      id: '5',
       value: 'system-ui',
       defaultValue: true
     }
