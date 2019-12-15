@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
 import { Subject, Observable } from 'rxjs';
 import { Store, select } from '@ngrx/store';
 
@@ -16,7 +16,8 @@ import { takeUntil } from 'rxjs/operators';
 @Component({
   selector: 'app-editor',
   templateUrl: './editor.component.html',
-  styleUrls: ['./editor.component.css']
+  styleUrls: ['./editor.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EditorComponent implements OnInit, OnDestroy {
 

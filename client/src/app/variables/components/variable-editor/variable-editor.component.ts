@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { Store, select } from '@ngrx/store';
 import { takeUntil } from 'rxjs/operators';
@@ -22,7 +22,8 @@ import * as fromRoot from '../../../store/reducers';
 @Component({
   selector: 'app-variable-editor',
   templateUrl: './variable-editor.component.html',
-  styleUrls: ['./variable-editor.component.css']
+  styleUrls: ['./variable-editor.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class VariableEditorComponent implements OnInit, OnDestroy {
 
