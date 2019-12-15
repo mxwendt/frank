@@ -6,25 +6,3 @@
 .previews {
     display: flex;
 }
-
-.declarations {
-    display: grid;
-    grid-template-columns: auto auto;
-    grid-template-rows: repeat(1fr);
-    align-content: start;
-    justify-content: start;
-    align-items: start;
-    justify-items: start;
-    column-gap: 30px;
-    row-gap: 10px;
-}
-
-app-node {
-    grid-column-start: 1;
-}
-
-.declaration {
-    grid-column-start: 2;
-    font-size: 12px;
-    line-height: 14px;
-}

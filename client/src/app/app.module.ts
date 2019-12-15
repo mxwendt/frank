@@ -9,7 +9,6 @@ import { EffectsModule } from '@ngrx/effects';
 import { AppComponent } from './app.component';
 import { PillComponent } from './components/pill/pill.component';
 import { PreviewComponent } from './components/preview/preview.component';
-import { NodeComponent } from './components/node/node.component';
 import { reducers, metaReducers } from './store/reducers';
 import { environment } from '../environments/environment';
 import { FontFamilyEffects } from './store/entities/font-family/font-family.effects';
@@ -24,7 +23,6 @@ import { HeaderBarComponent } from './components/header-bar/header-bar.component
     AppComponent,
     PillComponent,
     PreviewComponent,
-    NodeComponent,
     PageNotFoundComponent,
     DashboardComponent,
     HeaderBarComponent

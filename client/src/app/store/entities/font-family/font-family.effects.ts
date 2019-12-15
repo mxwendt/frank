@@ -14,8 +14,6 @@ export class FontFamilyEffects {
     ofType(loadDefaultValues),
     mergeMap(() => this.defaultValuesService.getDefaultFontFamilies().pipe(
       map((fontFamilies: string[]) => {
-        console.log(fontFamilies);
-
         let fontFamilyEntites: FontFamily[] = [];
 
         fontFamilies.forEach((fontFamily: string, index: number) => {

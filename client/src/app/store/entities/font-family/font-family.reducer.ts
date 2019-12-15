@@ -13,6 +13,42 @@ export const adapter: EntityAdapter<FontFamily> = createEntityAdapter<FontFamily
 
 export const initialState: State = adapter.getInitialState({
   // additional entity state properties
+
+  // default values
+  ids: ['0', '1', '2', '3', '4', '5'],
+  entities: {
+    '0': {
+      id: '0',
+      value: 'serif',
+      defaultValue: true
+    },
+    '1': {
+      id: '0',
+      value: 'sans-serif',
+      defaultValue: true
+    },
+    '2': {
+      id: '0',
+      value: 'monospace',
+      defaultValue: true
+    },
+    '3': {
+      id: '0',
+      value: 'cursive',
+      defaultValue: true
+    },
+    '4': {
+      id: '0',
+      value: 'fantasy',
+      defaultValue: true
+    },
+    '5': {
+      id: '0',
+      value: 'system-ui',
+      defaultValue: true
+    }
+  }
+
 });
 
 const fontFamilyReducer = createReducer(

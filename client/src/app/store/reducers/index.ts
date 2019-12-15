@@ -14,6 +14,10 @@ import * as fromFontStyle from '../entities/font-style/font-style.reducer';
 import * as fromFontVariant from '../entities/font-variant/font-variant.reducer';
 import * as fromFontWeight from '../entities/font-weight/font-weight.reducer';
 
+import * as fromBaseElements from '../entities/nodes/base-elements/base-elements.reducer';
+import { FontFamily } from '../entities/font-family/font-family.model';
+import { Dictionary } from '@ngrx/entity';
+
 
 export interface State {
   [fromFontFamily.fontFamiliesFeatureKey]: fromFontFamily.State;
@@ -22,6 +26,7 @@ export interface State {
   [fromFontStyle.fontStylesFeatureKey]: fromFontStyle.State;
   [fromFontVariant.fontVariantsFeatureKey]: fromFontVariant.State;
   [fromFontWeight.fontWeightsFeatureKey]: fromFontWeight.State;
+  [fromBaseElements.baseElementsesFeatureKey]: fromBaseElements.State;
 }
 
 export const reducers: ActionReducerMap<State> = {
@@ -31,10 +36,13 @@ export const reducers: ActionReducerMap<State> = {
   [fromFontStyle.fontStylesFeatureKey]: fromFontStyle.reducer,
   [fromFontVariant.fontVariantsFeatureKey]: fromFontVariant.reducer,
   [fromFontWeight.fontWeightsFeatureKey]: fromFontWeight.reducer,
+  [fromBaseElements.baseElementsesFeatureKey]: fromBaseElements.reducer,
 };
 
 
 export const metaReducers: MetaReducer<State>[] = !environment.production ? [] : [];
+
+// variables
 
 export const selectFontFamilyState = createFeatureSelector<fromFontFamily.State>(fromFontFamily.fontFamiliesFeatureKey);
 export const selectAllFontFamilies = createSelector(selectFontFamilyState, fromFontFamily.selectAll);
@@ -59,3 +67,8 @@ export const selectFontWeightTotal = createSelector(selectFontWeightState, fromF
 export const selectLineHeightState = createFeatureSelector<fromLineHeight.State>(fromLineHeight.lineHeightsFeatureKey);
 export const selectAllLineHeights = createSelector(selectLineHeightState, fromLineHeight.selectAll);
 export const selectLineHeihgtTotal = createSelector(selectLineHeightState, fromLineHeight.selectTotal);
+
+// nodes
+
+export const selectBaseElementsState = createFeatureSelector<fromBaseElements.State>(fromBaseElements.baseElementsesFeatureKey);
+export const selectAllBaseElements = createSelector(selectBaseElementsState, fromBaseElements.selectAll);
