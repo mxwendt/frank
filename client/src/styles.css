@@ -7,6 +7,7 @@
     --color-light-grey: #E5E5E5;
 
     --font-avenir-next: "Avenir Next", Arial, Helvetica, sans-serif;
+    --font-hack: "Hack", monospace, sans-serif;
     --effect-box-shadow: 0 0 4px 0 #11111125;
 }
 
@@ -16,7 +17,7 @@ body {
     padding: 80px 0 50px 12.5%;
     margin: 0 auto;
     background-color: var(--color-white);
-    font-family: "Hack", Arial, Helvetica, sans-serif;
+    font-family: var(--font-hack);
     font-size: 16px;
     color: var(--color-black);
 }
