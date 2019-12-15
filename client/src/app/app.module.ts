@@ -46,7 +46,6 @@ import { HeaderBarComponent } from './components/header-bar/header-bar.component
     // import app modules
     VariablesModule,
     EditorModule
-
   ],
   providers: [],
   bootstrap: [AppComponent]

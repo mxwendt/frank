@@ -5,6 +5,24 @@
     position: relative;
 }
 
+.value:hover {
+    position: relative;
+    /* z-index: 2; */
+}
+
+.value:hover:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    bottom: -5px;
+    left: -5px;
+    z-index: -1;
+    border-radius: 3px;
+    background-color: var(--color-yellow);
+}
+
 ul.value-overlay {
     position: absolute;
     top: -5px;
@@ -15,6 +33,7 @@ ul.value-overlay {
     list-style: none;
     padding: 0;
     margin: 0;
+    border-radius: 3px;
 }
 
 ul.value-overlay > li {

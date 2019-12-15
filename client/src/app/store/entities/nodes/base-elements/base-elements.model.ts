@@ -9,6 +9,10 @@ export interface BaseElements {
       fontVariant: string; // id of font variant entity
       fontWeight: string; // id of font weight entity
       lineHeight: string; // id of line height entity
+    },
+    text: {
+      letterSpacing: string;  // id of line height entity
+      textAlign: string;  // id of line height entity
     }
   }
 }

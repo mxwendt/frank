@@ -1,20 +1,21 @@
 import { Component, OnInit, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
 import { Subject, Observable } from 'rxjs';
 import { Store, select } from '@ngrx/store';
+import { Update } from '@ngrx/entity';
 import { takeUntil } from 'rxjs/operators';
 
-import { BaseElements } from '../store/entities/nodes/base-elements/base-elements.model';
 import { FontFamily } from '../store/entities/font-family/font-family.model';
 import { FontSize } from '../store/entities/font-size/font-size.model';
 import { FontStyle } from '../store/entities/font-style/font-style.model';
 import { FontVariant } from '../store/entities/font-variant/font-variant.model';
 import { FontWeight } from '../store/entities/font-weight/font-weight.model';
 import { LineHeight } from '../store/entities/line-height/line-height.model';
+import { LetterSpacing } from '../store/entities/props/text/letter-spacing/letter-spacing.model';
+import { BaseElements } from '../store/entities/nodes/base-elements/base-elements.model';
+import { updateBaseElements } from '../store/entities/nodes/base-elements/base-elements.actions';
 
 import * as fromRoot from '../store/reducers';
-import { Update } from '@ngrx/entity';
-import { updateFontFamily } from '../store/entities/font-family/font-family.actions';
-import { updateBaseElements } from '../store/entities/nodes/base-elements/base-elements.actions';
+import { TextAlign } from '../store/entities/props/text/text-align/text-align.model';
 
 @Component({
   selector: 'app-editor',
@@ -46,7 +47,11 @@ export class EditorComponent implements OnInit, OnDestroy {
   lineHeights$: Observable<LineHeight[]>;
   lineHeightValues: number[];
 
-  selectedFontFamily: string;
+  letterSpacings$: Observable<LetterSpacing[]>;
+  letterSpacingValues: number[];
+
+  textAligns$: Observable<TextAlign[]>;
+  textAlignValues: string[];
 
   constructor(
     private store: Store<fromRoot.State>
@@ -82,6 +87,16 @@ export class EditorComponent implements OnInit, OnDestroy {
       select(fromRoot.selectAllLineHeights),
       takeUntil(this.unsubscribe$)
     );
+
+    this.letterSpacings$ = this.store.pipe(
+      select(fromRoot.selectAllLetterSpacings),
+      takeUntil(this.unsubscribe$)
+    );
+
+    this.textAligns$ = this.store.pipe(
+      select(fromRoot.selectAllTextAligns),
+      takeUntil(this.unsubscribe$)
+    );
   }
 
   ngOnInit() {
@@ -108,6 +123,14 @@ export class EditorComponent implements OnInit, OnDestroy {
     this.lineHeights$.subscribe((lineHeight: LineHeight[]) => {
       this.lineHeightValues = lineHeight.map((lineHeight: LineHeight) => lineHeight.value);
     });
+
+    this.letterSpacings$.subscribe((letterSpacing: LetterSpacing[]) => {
+      this.letterSpacingValues = letterSpacing.map((letterSpacing: LetterSpacing) => letterSpacing.value);
+    });
+
+    this.textAligns$.subscribe((textAligns: TextAlign[]) => {
+      this.textAlignValues = textAligns.map((textAlign: TextAlign) => textAlign.value);
+    });
   }
 
   ngOnDestroy() {
@@ -117,6 +140,7 @@ export class EditorComponent implements OnInit, OnDestroy {
 
   updateElement(id: string, element: BaseElements, type: string) {
     let fontProp = null;
+    let textProp = null;
 
     switch (type) {
       case 'fontFamily':
@@ -137,12 +161,18 @@ export class EditorComponent implements OnInit, OnDestroy {
       case 'lineHeight':
         fontProp = {lineHeight: id}
         break;
+      case 'letterSpacing':
+        textProp = {letterSpacing: id}
+        break;
+      case 'textAlign':
+        textProp = {textAlign: id}
+        break;
     
       default:
         break;
     }
 
-    if (fontProp === null) return;
+    if (fontProp === null && textProp === null) return;
 
     const update: Update<BaseElements> = {
       id: element.id,
@@ -151,6 +181,10 @@ export class EditorComponent implements OnInit, OnDestroy {
           fonts: {
             ...element.declarations.fonts,
             ...fontProp
+          },
+          text: {
+            ...element.declarations.text,
+            ...textProp
           }
         }
       }

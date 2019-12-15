@@ -25,7 +25,10 @@ nav a {
     line-height: 16px;
     color: var(--color-black);
     border: 1px solid var(--color-light-grey);
-    cursor: default;
+}
+
+nav a:hover {
+    background-color: var(--color-yellow);
 }
 
 nav a:first-child {
@@ -39,4 +42,5 @@ nav a:last-child {
 
 nav a.is-selected {
     background-color: var(--color-yellow);
+    cursor: default;
 }

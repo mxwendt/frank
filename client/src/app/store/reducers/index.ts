@@ -14,9 +14,14 @@ import * as fromFontStyle from '../entities/font-style/font-style.reducer';
 import * as fromFontVariant from '../entities/font-variant/font-variant.reducer';
 import * as fromFontWeight from '../entities/font-weight/font-weight.reducer';
 
+import * as fromLetterSpacing from '../entities/props/text/letter-spacing/letter-spacing.reducer';
+import * as fromTextAlign from '../entities/props/text/text-align/text-align.reducer';
+import * as fromTextIndent from '../entities/props/text/text-indent/text-indent.reducer';
+import * as fromTextTransform from '../entities/props/text/text-transform/text-transform.reducer';
+import * as fromWhiteSpace from '../entities/props/text/white-space/white-space.reducer';
+import * as fromWordSpacing from '../entities/props/text/word-spacing/word-spacing.reducer';
+
 import * as fromBaseElements from '../entities/nodes/base-elements/base-elements.reducer';
-import { FontFamily } from '../entities/font-family/font-family.model';
-import { Dictionary } from '@ngrx/entity';
 
 
 export interface State {
@@ -26,6 +31,12 @@ export interface State {
   [fromFontStyle.fontStylesFeatureKey]: fromFontStyle.State;
   [fromFontVariant.fontVariantsFeatureKey]: fromFontVariant.State;
   [fromFontWeight.fontWeightsFeatureKey]: fromFontWeight.State;
+  [fromLetterSpacing.letterSpacingsFeatureKey]: fromLetterSpacing.State;
+  [fromTextAlign.textAlignsFeatureKey]: fromTextAlign.State;
+  [fromTextIndent.textIndentsFeatureKey]: fromTextIndent.State;
+  [fromTextTransform.textTransformsFeatureKey]: fromTextTransform.State;
+  [fromWhiteSpace.whiteSpacesFeatureKey]: fromWhiteSpace.State;
+  [fromWordSpacing.wordSpacingsFeatureKey]: fromWordSpacing.State;
   [fromBaseElements.baseElementsesFeatureKey]: fromBaseElements.State;
 }
 
@@ -36,13 +47,19 @@ export const reducers: ActionReducerMap<State> = {
   [fromFontStyle.fontStylesFeatureKey]: fromFontStyle.reducer,
   [fromFontVariant.fontVariantsFeatureKey]: fromFontVariant.reducer,
   [fromFontWeight.fontWeightsFeatureKey]: fromFontWeight.reducer,
+  [fromLetterSpacing.letterSpacingsFeatureKey]: fromLetterSpacing.reducer,
+  [fromTextAlign.textAlignsFeatureKey]: fromTextAlign.reducer,
+  [fromTextIndent.textIndentsFeatureKey]: fromTextIndent.reducer,
+  [fromTextTransform.textTransformsFeatureKey]: fromTextTransform.reducer,
+  [fromWhiteSpace.whiteSpacesFeatureKey]: fromWhiteSpace.reducer,
+  [fromWordSpacing.wordSpacingsFeatureKey]: fromWordSpacing.reducer,
   [fromBaseElements.baseElementsesFeatureKey]: fromBaseElements.reducer,
 };
 
 
 export const metaReducers: MetaReducer<State>[] = !environment.production ? [] : [];
 
-// variables
+// variables - fonts props
 
 export const selectFontFamilyState = createFeatureSelector<fromFontFamily.State>(fromFontFamily.fontFamiliesFeatureKey);
 export const selectAllFontFamilies = createSelector(selectFontFamilyState, fromFontFamily.selectAll);
@@ -67,6 +84,32 @@ export const selectFontWeightTotal = createSelector(selectFontWeightState, fromF
 export const selectLineHeightState = createFeatureSelector<fromLineHeight.State>(fromLineHeight.lineHeightsFeatureKey);
 export const selectAllLineHeights = createSelector(selectLineHeightState, fromLineHeight.selectAll);
 export const selectLineHeihgtTotal = createSelector(selectLineHeightState, fromLineHeight.selectTotal);
+
+// variables - text props
+
+export const selectLetterSpacingState = createFeatureSelector<fromLetterSpacing.State>(fromLetterSpacing.letterSpacingsFeatureKey);
+export const selectAllLetterSpacings = createSelector(selectLetterSpacingState, fromLetterSpacing.selectAll);
+export const selectLetterSpacingTotal = createSelector(selectLetterSpacingState, fromLetterSpacing.selectTotal);
+
+export const selectTextAlignState = createFeatureSelector<fromTextAlign.State>(fromTextAlign.textAlignsFeatureKey);
+export const selectAllTextAligns = createSelector(selectTextAlignState, fromTextAlign.selectAll);
+export const selectTextAlignTotal = createSelector(selectTextAlignState, fromTextAlign.selectTotal);
+
+export const selectTextIndentState = createFeatureSelector<fromTextIndent.State>(fromTextIndent.textIndentsFeatureKey);
+export const selectAllTextIndents = createSelector(selectTextIndentState, fromTextIndent.selectAll);
+export const selectTextIndentTotal = createSelector(selectTextIndentState, fromTextIndent.selectTotal);
+
+export const selectTextTransformState = createFeatureSelector<fromTextTransform.State>(fromTextTransform.textTransformsFeatureKey);
+export const selectAllTextTransforms = createSelector(selectTextTransformState, fromTextTransform.selectAll);
+export const selectTextTransformTotal = createSelector(selectTextTransformState, fromTextTransform.selectTotal);
+
+export const selectWhiteSpaceState = createFeatureSelector<fromWhiteSpace.State>(fromWhiteSpace.whiteSpacesFeatureKey);
+export const selectAllWhiteSpaces = createSelector(selectWhiteSpaceState, fromWhiteSpace.selectAll);
+export const selectWhiteSpaceTotal = createSelector(selectWhiteSpaceState, fromWhiteSpace.selectTotal);
+
+export const selectWordSpaceState = createFeatureSelector<fromWordSpacing.State>(fromWordSpacing.wordSpacingsFeatureKey);
+export const selectAllWordSpaces = createSelector(selectWordSpaceState, fromWordSpacing.selectAll);
+export const selectWordSpaceTotal = createSelector(selectWordSpaceState, fromWordSpacing.selectTotal);
 
 // nodes
 
