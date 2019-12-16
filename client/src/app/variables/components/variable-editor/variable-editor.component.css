@@ -1,5 +1,6 @@
 :host {
     display: block;
+    padding-top: 10px;
 }
 
 .label {
@@ -8,7 +9,7 @@
     margin: 0 0 0 -12.5%;
     padding: 6px 0 7px 0;
     position: sticky;
-    top: 50px;
+    top: 10px;
     font-size: 16px;
     font-family: var(--font-avenir-next);
 }

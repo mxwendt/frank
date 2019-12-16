@@ -10,6 +10,7 @@ const routes: Routes = [
   { path: '', component: DashboardComponent },
   { path: 'variables', component: VariablesComponent },
   { path: 'editor', component: EditorComponent },
+  { path: 'editor/:key', component: EditorComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
 

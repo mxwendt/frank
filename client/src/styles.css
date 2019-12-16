@@ -15,12 +15,13 @@
 body {
     max-width: 1400px;
     width: 87.5%;
-    padding: 80px 0 50px 12.5%;
+    padding: 0 0 50px 12.5%;
     margin: 0 auto;
     background-color: var(--color-white);
     font-family: var(--font-hack);
     font-size: 16px;
     color: var(--color-black);
+    overflow-y: scroll; /* TODO: think about removing it again */
 }
 
 p {
@@ -40,4 +41,40 @@ li {
 
 .inherited {
     color: #C4C4C4;
+}
+
+/* nav */
+
+nav {
+    display: flex;
+    background-color: var(--color-white);
+}
+
+nav a {
+    display: flex;
+    padding: 6px 10px;
+    text-decoration: none;
+    font-family: var(--font-avenir-next);
+    font-size: 12px;
+    line-height: 16px;
+    color: var(--color-black);
+    border: 1px solid var(--color-light-grey);
+}
+
+nav a:hover {
+    background-color: var(--color-yellow);
+}
+
+nav a:first-child {
+    border-radius: 5px 0 0 5px;
+    border-right: none;
+}
+
+nav a:last-child {
+    border-radius: 0 5px 5px 0;
+}
+
+nav a.is-selected {
+    background-color: var(--color-yellow);
+    cursor: default;
 }

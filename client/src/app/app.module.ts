@@ -31,7 +31,6 @@ import { HeaderBarComponent } from './components/header-bar/header-bar.component
 
     // import vendor modules
     BrowserModule,
-    AppRoutingModule,
     HttpClientModule,
     StoreModule.forRoot(reducers, {
       metaReducers,
@@ -45,7 +44,10 @@ import { HeaderBarComponent } from './components/header-bar/header-bar.component
     
     // import app modules
     VariablesModule,
-    EditorModule
+    EditorModule,
+
+    // import routing module last
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

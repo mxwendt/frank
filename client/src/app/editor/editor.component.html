@@ -1,36 +1,6 @@
-<div class="declarations">
-
-    <h2 class="label">&nbsp;</h2>
-    <h2 class="label label-fonts">CSS Fonts</h2>
-    <h2 class="label label-text">CSS Text</h2>
-
-    <div class="prop-label">&nbsp;</div>
-    <div class="prop-label">font-family</div>
-    <div class="prop-label">font-size</div>
-    <div class="prop-label">font-style</div>
-    <div class="prop-label">font-variant</div>
-    <div class="prop-label">font-weight</div>
-    <div class="prop-label">line-height</div>
-    <div></div>
-    <div class="prop-label">letter-spacing</div>
-    <div class="prop-label">text-align</div>
-
-    <ng-container *ngFor="let baseElement of (baseElements$ | async)">
-        <app-node [selector]="baseElement.selector"></app-node>
-        
-        <!-- fonts -->
-        <app-declaration (onUpdate)="updateElement($event, baseElement, 'fontFamily')" [values]="fontFamilyValues" [initialValue]="baseElement.declarations.fonts.fontFamily"></app-declaration>
-        <app-declaration (onUpdate)="updateElement($event, baseElement, 'fontSize')" [values]="fontSizeValues" [initialValue]="baseElement.declarations.fonts.fontSize"></app-declaration>
-        <app-declaration (onUpdate)="updateElement($event, baseElement, 'fontStyle')" [values]="fontStyleValues" [initialValue]="baseElement.declarations.fonts.fontStyle"></app-declaration>
-        <app-declaration (onUpdate)="updateElement($event, baseElement, 'fontVariant')" [values]="fontVariantValues" [initialValue]="baseElement.declarations.fonts.fontVariant"></app-declaration>
-        <app-declaration (onUpdate)="updateElement($event, baseElement, 'fontWeight')" [values]="fontWeightValues" [initialValue]="baseElement.declarations.fonts.fontWeight"></app-declaration>
-        <app-declaration (onUpdate)="updateElement($event, baseElement, 'lineHeight')"[values]="lineHeightValues" [initialValue]="baseElement.declarations.fonts.lineHeight"></app-declaration>
-        
-        <!-- text -->
-        <div></div>
-        <app-declaration (onUpdate)="updateElement($event, baseElement, 'letterSpacing')" [values]="letterSpacingValues" [initialValue]="baseElement.declarations.text.letterSpacing"></app-declaration>
-        <app-declaration (onUpdate)="updateElement($event, baseElement, 'textAlign')" [values]="textAlignValues" [initialValue]="baseElement.declarations.text.textAlign"></app-declaration>
-    
-    </ng-container>
-
-</div>
+<nav>
+    <a [routerLink]="['/editor', 'fonts']" routerLinkActive="active" (click)="setModuleKey('fonts')">Fonts</a>
+    <a [routerLink]="['/editor', 'text']" routerLinkActive="active" (click)="setModuleKey('text')">Text</a>
+</nav>
+<app-fonts-editor *ngIf="selectedModuleKey === 'fonts'"></app-fonts-editor>
+<app-text-editor *ngIf="selectedModuleKey === 'text'"></app-text-editor>
