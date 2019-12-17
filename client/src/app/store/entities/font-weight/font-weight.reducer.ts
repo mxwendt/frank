@@ -29,7 +29,7 @@ export const initialState: State = adapter.getInitialState({
     },
     '2': {
       id: '2',
-      value: 'lighter',
+      value: 'light',
       defaultValue: true
     },
     '3': {
