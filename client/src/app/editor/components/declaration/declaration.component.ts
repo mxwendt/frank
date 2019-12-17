@@ -10,6 +10,8 @@ export class DeclarationComponent implements OnInit {
 
   @Input() values: string[] | number[];
   @Input() initialValue: string;
+  @Input() prop: string;
+  @Input() unit: string;
   @Output() onUpdate = new EventEmitter<string>();
 
   editMode: boolean;

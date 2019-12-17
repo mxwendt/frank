@@ -11,12 +11,12 @@
     <ng-container *ngFor="let baseElement of (baseElements$ | async)">
         <app-node [selector]="baseElement.selector"></app-node>
         
-        <app-declaration (onUpdate)="updateElement($event, baseElement, 'fontFamily')" [values]="fontFamilyValues" [initialValue]="baseElement.declarations.fonts.fontFamily"></app-declaration>
-        <app-declaration (onUpdate)="updateElement($event, baseElement, 'fontSize')" [values]="fontSizeValues" [initialValue]="baseElement.declarations.fonts.fontSize"></app-declaration>
-        <app-declaration (onUpdate)="updateElement($event, baseElement, 'fontStyle')" [values]="fontStyleValues" [initialValue]="baseElement.declarations.fonts.fontStyle"></app-declaration>
-        <app-declaration (onUpdate)="updateElement($event, baseElement, 'fontVariant')" [values]="fontVariantValues" [initialValue]="baseElement.declarations.fonts.fontVariant"></app-declaration>
-        <app-declaration (onUpdate)="updateElement($event, baseElement, 'fontWeight')" [values]="fontWeightValues" [initialValue]="baseElement.declarations.fonts.fontWeight"></app-declaration>
-        <app-declaration (onUpdate)="updateElement($event, baseElement, 'lineHeight')"[values]="lineHeightValues" [initialValue]="baseElement.declarations.fonts.lineHeight"></app-declaration>
+        <app-declaration (onUpdate)="updateElement($event, baseElement, 'fontFamily')" [values]="fontFamilyValues" [initialValue]="baseElement.declarations.fonts.fontFamily" prop="font-family"></app-declaration>
+        <app-declaration (onUpdate)="updateElement($event, baseElement, 'fontSize')" [values]="fontSizeValues" [initialValue]="baseElement.declarations.fonts.fontSize" prop="font-size" unit="px"></app-declaration>
+        <app-declaration (onUpdate)="updateElement($event, baseElement, 'fontStyle')" [values]="fontStyleValues" [initialValue]="baseElement.declarations.fonts.fontStyle" prop="font-style"></app-declaration>
+        <app-declaration (onUpdate)="updateElement($event, baseElement, 'fontVariant')" [values]="fontVariantValues" [initialValue]="baseElement.declarations.fonts.fontVariant" prop="font-variant"></app-declaration>
+        <app-declaration (onUpdate)="updateElement($event, baseElement, 'fontWeight')" [values]="fontWeightValues" [initialValue]="baseElement.declarations.fonts.fontWeight" prop="font-weight"></app-declaration>
+        <app-declaration (onUpdate)="updateElement($event, baseElement, 'lineHeight')"[values]="lineHeightValues" [initialValue]="baseElement.declarations.fonts.lineHeight" prop="line-height"></app-declaration>
     
     </ng-container>
 

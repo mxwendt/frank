@@ -7,8 +7,8 @@
     <ng-container *ngFor="let baseElement of (baseElements$ | async)">
         <app-node [selector]="baseElement.selector"></app-node>
         
-        <app-declaration (onUpdate)="updateElement($event, baseElement, 'letterSpacing')" [values]="letterSpacingValues" [initialValue]="baseElement.declarations.text.letterSpacing"></app-declaration>
-        <app-declaration (onUpdate)="updateElement($event, baseElement, 'textAlign')" [values]="textAlignValues" [initialValue]="baseElement.declarations.text.textAlign"></app-declaration>
+        <app-declaration (onUpdate)="updateElement($event, baseElement, 'letterSpacing')" [values]="letterSpacingValues" [initialValue]="baseElement.declarations.text.letterSpacing" prop="letter-spacing"></app-declaration>
+        <app-declaration (onUpdate)="updateElement($event, baseElement, 'textAlign')" [values]="textAlignValues" [initialValue]="baseElement.declarations.text.textAlign" prop="text-align"></app-declaration>
     
     </ng-container>
 

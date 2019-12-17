@@ -10,7 +10,25 @@
     /* z-index: 2; */
 }
 
-.value:hover:after {
+.unit {
+    font-family: var(--font-avenir-next);
+    font-size: 10px;
+    line-height: 10px;
+}
+
+/* .value:hover:before {
+    content: 'font-family:';
+    display: block;
+    padding: 5px;
+    right: calc(100%);
+    position: absolute;
+    white-space: nowrap;
+    z-index: 1;
+    top: -5px;
+    background-color: var(--color-yellow);
+} */
+
+/* .value:hover:after {
     content: '';
     display: block;
     position: absolute;
@@ -21,12 +39,12 @@
     z-index: -1;
     border-radius: 3px;
     background-color: var(--color-yellow);
-}
+} */
 
 ul.value-overlay {
     position: absolute;
     top: -5px;
-    left: -15px;
+    left: -5px;
     z-index: 1;
     background-color: white;
     box-shadow: var(--effect-box-shadow);
@@ -38,13 +56,22 @@ ul.value-overlay {
 
 ul.value-overlay > li {
     white-space: nowrap;
-    padding: 5px 15px;
+    padding: 5px 5px;
+    position: relative;
 }
 
 ul.value-overlay > li:hover {
     background-color: var(--color-yellow);
 }
 
-ul.value-overlay > li + li {
-    border-top: 1px dotted var(--color-light-grey);
+ul.value-overlay > li:hover:before {
+    content: attr(title)':'; /* TODO: should you data attribute instead */
+    display: block;
+    padding: 5px 0 5px 5px;
+    right: 100%;
+    position: absolute;
+    white-space: nowrap;
+    z-index: 1;
+    top: 0;
+    background-color: var(--color-yellow);
 }
