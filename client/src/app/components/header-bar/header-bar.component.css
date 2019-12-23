@@ -1,7 +1,49 @@
 :host {
     display: flex;
+    flex-direction: column;
     position: fixed;
-    top: 10px;
-    left: 10px;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 200px;
+    padding-top: 20px;
     z-index: 100;
+    background-color: var(--color-ayu-petrol-light);
+}
+
+nav,
+nav details {
+    display: flex;
+    flex-direction: column;
+}
+
+nav a,
+nav summary {
+    display: block;
+    color: var(--color-text);
+    text-decoration: none;
+    padding: 10px 20px;
+    font-family: var(--font-avenir-next);
+    font-size: var(--text-size);
+    line-height: var(--text-leading);
+    text-transform: uppercase;
+    outline: none;
+    cursor: default;
+}
+
+nav details a {
+    text-transform: none;
+    padding: 5px 20px 5px 35px;
+}
+
+nav a.is-selected {
+    background-color: var(--color-ayu-petrol);
+}
+
+nav a:not(.is-selected):hover {
+    background-color: var(--color-ayu-petrol-hover);
+}
+
+nav summary:hover {
+    background-color: var(--color-ayu-petrol-hover);
 }

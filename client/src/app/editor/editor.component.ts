@@ -1,6 +1,6 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, OnDestroy } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
-import { switchMap, map } from 'rxjs/operators';
+import { Subject, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-editor',
@@ -8,16 +8,22 @@ import { switchMap, map } from 'rxjs/operators';
   styleUrls: ['./editor.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class EditorComponent implements OnInit {
+export class EditorComponent implements OnInit, OnDestroy {
 
   selectedModuleKey: string;
+
+  private routerParamSubscription$: Subscription;
 
   constructor(
     private route: ActivatedRoute,
   ) {}
 
   ngOnInit() {
-    this.route.paramMap.subscribe((params: ParamMap) => this.selectedModuleKey = params.get('key'));
+    //this.routerParamSubscription$ = this.route.paramMap.subscribe((params: ParamMap) => this.selectedModuleKey = params.get('key'));
+  }
+
+  ngOnDestroy() {
+    //this.routerParamSubscription$.unsubscribe();
   }
 
   setModuleKey(key: string) {

@@ -18,15 +18,14 @@
     z-index: 1;
     margin-top: 50px;
     margin-bottom: 20px;
-    padding-top: 5px;
+    padding-top: 20px;
     padding-bottom: 10px;
-    font-size: 12px;
-    line-height: 14px;
+    font-size: var(--text-size);
+    line-height: var(--text-leading);
     font-family: var(--font-avenir-next);
     position: sticky;
-    top: 40px;
-    background-color: var(--color-white);
-    border-bottom: 1px solid var(--color-light-grey);
+    top: 0;
+    background-color: var(--color-ayu-petrol);
 }
 
 app-node {

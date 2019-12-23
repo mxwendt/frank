@@ -1,4 +1,8 @@
 <nav>
     <a routerLink="/variables" routerLinkActive="active" [class.is-selected]="selectedNavItem === 'variables'" (click)="setSelected('variables')">Variables</a>
-    <a routerLink="/editor" routerLinkActive="active" [class.is-selected]="selectedNavItem === 'editor'" (click)="setSelected('editor')">Editor</a>
+    <details open>
+        <summary>Rules</summary>
+        <a routerLink="/editor/fonts" routerLinkActive="active" [class.is-selected]="selectedNavItem === 'fonts'" (click)="setSelected('fonts')">Fonts</a>
+        <a routerLink="/editor/text" routerLinkActive="active" [class.is-selected]="selectedNavItem === 'text'" (click)="setSelected('text')">Text</a>
+    </details>
 </nav>

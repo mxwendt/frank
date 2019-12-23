@@ -1,32 +1,53 @@
 /* You can add global styles to this file, and also import other style files */
 
 :root {
+    --color-ayu-birch: #ebe6d7;
+    --color-ayu-petrol: #111921;
+    --color-ayu-petrol-light: #304251;
+    --color-ayu-petrol-hover: #1d2b38;
+
     --color-white: #fffff8;
     --color-black: #111111;
     --color-blue: #246BD7;
     --color-yellow: #F2C94C;
+    --color-grey: #111111;
     --color-light-grey: #E5E5E5;
 
     --font-avenir-next: "Avenir Next", Arial, Helvetica, sans-serif;
     --font-hack: "Hack", monospace, sans-serif;
+    
     --effect-box-shadow: 0 0 4px 0 #11111125;
 }
 
 body {
+    --color-bg: var(--color-white);
+    --color-text: var(--color-black);
+
+    --text-size: 13px;
+    --text-leading: 16px;
+}
+
+body.ayu-theme {
+    --color-bg: var(--color-ayu-petrol);
+    --color-text: var(--color-ayu-birch);
+}
+
+body {
     max-width: 1400px;
-    width: 87.5%;
-    padding: 0 0 50px 12.5%;
+    width: 100%;
+    padding: 0 0 50px 210px;
     margin: 0 auto;
-    background-color: var(--color-white);
+    background-color: var(--color-bg);
     font-family: var(--font-hack);
     font-size: 16px;
-    color: var(--color-black);
+    color: var(--color-text);
     overflow-y: scroll; /* TODO: think about removing it again */
 }
 
 p {
     font-family: var(--font-avenir-next);
-    font-size: 12px;
+    font-size: var(--text-size);
+    line-height: var(--text-leading);
 }
 
 @media screen and (min-width: 760px) {
@@ -41,40 +62,4 @@ li {
 
 .inherited {
     color: #C4C4C4;
-}
-
-/* nav */
-
-nav {
-    display: flex;
-    background-color: var(--color-white);
-}
-
-nav a {
-    display: flex;
-    padding: 6px 10px;
-    text-decoration: none;
-    font-family: var(--font-avenir-next);
-    font-size: 12px;
-    line-height: 16px;
-    color: var(--color-black);
-    border: 1px solid var(--color-light-grey);
-}
-
-nav a:hover {
-    background-color: var(--color-yellow);
-}
-
-nav a:first-child {
-    border-radius: 5px 0 0 5px;
-    border-right: none;
-}
-
-nav a:last-child {
-    border-radius: 0 5px 5px 0;
-}
-
-nav a.is-selected {
-    background-color: var(--color-yellow);
-    cursor: default;
 }

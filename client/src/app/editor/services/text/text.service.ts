@@ -1,10 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Store, select } from '@ngrx/store';
+import { Store } from '@ngrx/store';
 import { Update } from '@ngrx/entity';
 
-import { LetterSpacing } from 'src/app/store/entities/props/text/letter-spacing/letter-spacing.model';
-import { TextAlign } from 'src/app/store/entities/props/text/text-align/text-align.model';
 import { BaseElements } from 'src/app/store/entities/nodes/base-elements/base-elements.model';
 import { updateBaseElements } from 'src/app/store/entities/nodes/base-elements/base-elements.actions';
 
@@ -18,18 +15,6 @@ export class TextService {
     constructor(
         private store: Store<fromRoot.State>
     ) { }
-
-    selectAllLetterSpacings(): Observable<LetterSpacing[]> {
-        return this.store.pipe(
-            select(fromRoot.selectAllLetterSpacings)
-        );
-    }
-
-    selectAllTextAligns(): Observable<TextAlign[]> {
-        return this.store.pipe(
-            select(fromRoot.selectAllTextAligns)
-        );
-    }
 
     updateElement(id: string, element: BaseElements, type: string) {
         let textProp = null;

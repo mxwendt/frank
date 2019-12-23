@@ -1,6 +1,6 @@
 :host {
-    font-size: 12px;
-    line-height: 14px;
+    font-size: var(--text-size);
+    line-height: var(--text-leading);
     cursor: pointer;
     position: relative;
 }
@@ -46,8 +46,8 @@ ul.value-overlay {
     top: -5px;
     left: -5px;
     z-index: 1;
-    background-color: white;
-    box-shadow: var(--effect-box-shadow);
+    background-color: var(--color-ayu-petrol-light);
+    /* box-shadow: var(--effect-box-shadow); */
     list-style: none;
     padding: 0;
     margin: 0;
@@ -61,7 +61,7 @@ ul.value-overlay > li {
 }
 
 ul.value-overlay > li:hover {
-    background-color: var(--color-yellow);
+    background-color: var(--color-ayu-petrol-hover);
 }
 
 ul.value-overlay > li:hover:before {
@@ -73,5 +73,5 @@ ul.value-overlay > li:hover:before {
     white-space: nowrap;
     z-index: 1;
     top: 0;
-    background-color: var(--color-yellow);
+    background-color: var(--color-ayu-petrol-hover);
 }

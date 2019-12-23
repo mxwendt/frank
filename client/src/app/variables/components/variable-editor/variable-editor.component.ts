@@ -27,7 +27,7 @@ import * as fromRoot from '../../../store/reducers';
 })
 export class VariableEditorComponent implements OnInit, OnDestroy {
 
-  private unsubscribe$ = new Subject();
+  private unsubscribe$;
 
   fontFamilies$: Observable<FontFamily[]>;
   fontFamilyTotal$: Observable<number>;
@@ -57,6 +57,8 @@ export class VariableEditorComponent implements OnInit, OnDestroy {
   constructor(
     private store: Store<fromRoot.State>
   ) {
+    this.unsubscribe$ = new Subject();
+    
     this.fontFamilies$ = this.store.pipe(select(fromRoot.selectAllFontFamilies));
     this.fontFamilyTotal$ = this.store.pipe(
       select(fromRoot.selectFontFamilyTotal),

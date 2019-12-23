@@ -1,6 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FontsService } from '../../services/fonts/fonts.service';
-import { BaseElementsService } from '../../services/base-elements/base-elements.service';
 import { Observable, Subject } from 'rxjs';
 import { BaseElements } from '../../../store/entities/nodes/base-elements/base-elements.model';
 import { FontFamily } from '../../../store/entities/font-family/font-family.model';
@@ -10,6 +9,9 @@ import { FontStyle } from 'src/app/store/entities/font-style/font-style.model';
 import { FontVariant } from 'src/app/store/entities/font-variant/font-variant.model';
 import { FontWeight } from 'src/app/store/entities/font-weight/font-weight.model';
 import { LineHeight } from 'src/app/store/entities/line-height/line-height.model';
+import { select, Store } from '@ngrx/store';
+
+import * as fromRoot from '../../../store/reducers';
 
 @Component({
     selector: 'app-fonts-editor',
@@ -18,7 +20,7 @@ import { LineHeight } from 'src/app/store/entities/line-height/line-height.model
 })
 export class FontsEditorComponent implements OnInit, OnDestroy {
 
-    private unsubscribe$ = new Subject();
+    private unsubscribe$;
 
     baseElements$: Observable<BaseElements[]>;
 
@@ -37,17 +39,46 @@ export class FontsEditorComponent implements OnInit, OnDestroy {
     lineHeightValues: number[];
 
     constructor(
-        private baseElementsService: BaseElementsService,
+        private store: Store<fromRoot.State>,
         private fontsService: FontsService
     ) {
-        this.baseElements$ = this.baseElementsService.selectAllBaseElements().pipe(takeUntil(this.unsubscribe$));
+        this.unsubscribe$ = new Subject();
 
-        this.fontFamilies$ = this.fontsService.selectAllFontFamilies().pipe(takeUntil(this.unsubscribe$));
-        this.fontSizes$ = this.fontsService.selectAllFontSizes().pipe(takeUntil(this.unsubscribe$));
-        this.fontStyles$ = this.fontsService.selectAllFontStyles().pipe(takeUntil(this.unsubscribe$));
-        this.fontVariants$ = this.fontsService.selectAllFontVariants().pipe(takeUntil(this.unsubscribe$));
-        this.fontWeights$ = this.fontsService.selectAllFontWeights().pipe(takeUntil(this.unsubscribe$));
-        this.lineHeights$ = this.fontsService.selectAllLineHeights().pipe(takeUntil(this.unsubscribe$));
+        this.baseElements$ = this.store.pipe(
+            select(fromRoot.selectAllBaseElements),
+            takeUntil(this.unsubscribe$)
+        )
+
+        this.fontFamilies$ = this.store.pipe(
+            select(fromRoot.selectAllFontFamilies),
+            takeUntil(this.unsubscribe$)
+        );
+
+        this.fontSizes$ = this.store.pipe(
+            select(fromRoot.selectAllFontSizes),
+            takeUntil(this.unsubscribe$)
+        );
+
+        this.fontStyles$ = this.store.pipe(
+            select(fromRoot.selectAllFontStyles),
+            takeUntil(this.unsubscribe$)
+        );
+
+        this.fontVariants$ = this.store.pipe(
+            select(fromRoot.selectAllFontVariants),
+            takeUntil(this.unsubscribe$)
+        );
+
+        this.fontWeights$ = this.store.pipe(
+            select(fromRoot.selectAllFontWeights),
+            takeUntil(this.unsubscribe$)
+        );
+
+        this.lineHeights$ = this.store.pipe(
+            select(fromRoot.selectAllLineHeights),
+            takeUntil(this.unsubscribe$)
+        );
+
     }
 
     ngOnInit() {

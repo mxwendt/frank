@@ -5,6 +5,7 @@
     <div class="prop-label">text-align</div>
 
     <ng-container *ngFor="let baseElement of (baseElements$ | async)">
+        
         <app-node [selector]="baseElement.selector"></app-node>
         
         <app-declaration (onUpdate)="updateElement($event, baseElement, 'letterSpacing')" [values]="letterSpacingValues" [initialValue]="baseElement.declarations.text.letterSpacing" prop="letter-spacing"></app-declaration>
