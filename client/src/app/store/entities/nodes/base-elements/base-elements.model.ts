@@ -1,6 +1,8 @@
 export interface BaseElements {
   id: string;
   selector: string;
+  parentNode: string; // id of node entiry
+  childNodes: string[]; // ids of node entities
   declarations: {
     fonts: {
       fontFamily: string; // id of font family entity

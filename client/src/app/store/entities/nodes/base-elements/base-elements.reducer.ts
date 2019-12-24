@@ -21,6 +21,8 @@ export const initialState: State = adapter.getInitialState({
     '0': {
       id: '0',
       selector: 'body',
+      parentNode: null,
+      childNodes: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23'/*, '24'*/, '25', '26', '27'/*, '28'*/],
       declarations: {
         fonts: {
           fontFamily: '0',
@@ -39,6 +41,8 @@ export const initialState: State = adapter.getInitialState({
     '1': {
       id: '1',
       selector: 'article',
+      parentNode: '0',
+      childNodes: [],
       declarations: {
         fonts: {
           fontFamily: '0',
@@ -57,6 +61,8 @@ export const initialState: State = adapter.getInitialState({
     '2': {
       id: '2',
       selector: 'footer',
+      parentNode: '0',
+      childNodes: [],
       declarations: {
         fonts: {
           fontFamily: '0',
@@ -75,6 +81,8 @@ export const initialState: State = adapter.getInitialState({
     '3': {
       id: '3',
       selector: 'header',
+      parentNode: '0',
+      childNodes: [],
       declarations: {
         fonts: {
           fontFamily: '0',
@@ -93,6 +101,8 @@ export const initialState: State = adapter.getInitialState({
     '4': {
       id: '4',
       selector: 'h1',
+      parentNode: '0',
+      childNodes: [],
       declarations: {
         fonts: {
           fontFamily: '0',
@@ -111,6 +121,8 @@ export const initialState: State = adapter.getInitialState({
     '5': {
       id: '5',
       selector: 'h2',
+      parentNode: '0',
+      childNodes: [],
       declarations: {
         fonts: {
           fontFamily: '0',
@@ -129,6 +141,8 @@ export const initialState: State = adapter.getInitialState({
     '6': {
       id: '6',
       selector: 'h3',
+      parentNode: '0',
+      childNodes: [],
       declarations: {
         fonts: {
           fontFamily: '0',
@@ -147,6 +161,8 @@ export const initialState: State = adapter.getInitialState({
     '7': {
       id: '7',
       selector: 'h4',
+      parentNode: '0',
+      childNodes: [],
       declarations: {
         fonts: {
           fontFamily: '0',
@@ -165,6 +181,8 @@ export const initialState: State = adapter.getInitialState({
     '8': {
       id: '8',
       selector: 'h5',
+      parentNode: '0',
+      childNodes: [],
       declarations: {
         fonts: {
           fontFamily: '0',
@@ -183,6 +201,8 @@ export const initialState: State = adapter.getInitialState({
     '9': {
       id: '9',
       selector: 'h6',
+      parentNode: '0',
+      childNodes: [],
       declarations: {
         fonts: {
           fontFamily: '0',
@@ -201,6 +221,8 @@ export const initialState: State = adapter.getInitialState({
     '10': {
       id: '10',
       selector: 'hgroup',
+      parentNode: '0',
+      childNodes: [],
       declarations: {
         fonts: {
           fontFamily: '0',
@@ -219,6 +241,8 @@ export const initialState: State = adapter.getInitialState({
     '11': {
       id: '11',
       selector: 'main',
+      parentNode: '0',
+      childNodes: [],
       declarations: {
         fonts: {
           fontFamily: '0',
@@ -237,6 +261,8 @@ export const initialState: State = adapter.getInitialState({
     '12': {
       id: '12',
       selector: 'nav',
+      parentNode: '0',
+      childNodes: [],
       declarations: {
         fonts: {
           fontFamily: '0',
@@ -255,6 +281,8 @@ export const initialState: State = adapter.getInitialState({
     '13': {
       id: '13',
       selector: 'section',
+      parentNode: '0',
+      childNodes: [],
       declarations: {
         fonts: {
           fontFamily: '0',
@@ -273,6 +301,8 @@ export const initialState: State = adapter.getInitialState({
     '14': {
       id: '14',
       selector: 'blockquote',
+      parentNode: '0',
+      childNodes: [],
       declarations: {
         fonts: {
           fontFamily: '0',
@@ -291,6 +321,8 @@ export const initialState: State = adapter.getInitialState({
     '15': {
       id: '15',
       selector: 'dir',
+      parentNode: '0',
+      childNodes: [],
       declarations: {
         fonts: {
           fontFamily: '0',
@@ -309,6 +341,8 @@ export const initialState: State = adapter.getInitialState({
     '16': {
       id: '16',
       selector: 'div',
+      parentNode: '0',
+      childNodes: [],
       declarations: {
         fonts: {
           fontFamily: '0',
@@ -327,6 +361,8 @@ export const initialState: State = adapter.getInitialState({
     '17': {
       id: '17',
       selector: 'dl',
+      parentNode: '0',
+      childNodes: [],
       declarations: {
         fonts: {
           fontFamily: '0',
@@ -345,6 +381,8 @@ export const initialState: State = adapter.getInitialState({
     '18': {
       id: '18',
       selector: 'dt',
+      parentNode: '0',
+      childNodes: [],
       declarations: {
         fonts: {
           fontFamily: '0',
@@ -363,6 +401,8 @@ export const initialState: State = adapter.getInitialState({
     '19': {
       id: '19',
       selector: 'dd',
+      parentNode: '0',
+      childNodes: [],
       declarations: {
         fonts: {
           fontFamily: '0',
@@ -381,6 +421,8 @@ export const initialState: State = adapter.getInitialState({
     '20': {
       id: '20',
       selector: 'figure',
+      parentNode: '0',
+      childNodes: [],
       declarations: {
         fonts: {
           fontFamily: '0',
@@ -399,6 +441,8 @@ export const initialState: State = adapter.getInitialState({
     '21': {
       id: '21',
       selector: 'figcaption',
+      parentNode: '0',
+      childNodes: [],
       declarations: {
         fonts: {
           fontFamily: '0',
@@ -417,6 +461,8 @@ export const initialState: State = adapter.getInitialState({
     '22': {
       id: '22',
       selector: 'hr',
+      parentNode: '0',
+      childNodes: [],
       declarations: {
         fonts: {
           fontFamily: '0',
@@ -435,6 +481,8 @@ export const initialState: State = adapter.getInitialState({
     '23': {
       id: '23',
       selector: 'ol',
+      parentNode: '0',
+      childNodes: ['25'],
       declarations: {
         fonts: {
           fontFamily: '0',
@@ -453,6 +501,8 @@ export const initialState: State = adapter.getInitialState({
     '24': {
       id: '24',
       selector: 'li',
+      parentNode: '23',
+      childNodes: [],
       declarations: {
         fonts: {
           fontFamily: '0',
@@ -471,6 +521,8 @@ export const initialState: State = adapter.getInitialState({
     '25': {
       id: '25',
       selector: 'p',
+      parentNode: '0',
+      childNodes: [],
       declarations: {
         fonts: {
           fontFamily: '0',
@@ -489,6 +541,8 @@ export const initialState: State = adapter.getInitialState({
     '26': {
       id: '26',
       selector: 'pre',
+      parentNode: '0',
+      childNodes: [],
       declarations: {
         fonts: {
           fontFamily: '0',
@@ -507,6 +561,8 @@ export const initialState: State = adapter.getInitialState({
     '27': {
       id: '27',
       selector: 'ul',
+      parentNode: '0',
+      childNodes: ['28'],
       declarations: {
         fonts: {
           fontFamily: '0',
@@ -525,6 +581,8 @@ export const initialState: State = adapter.getInitialState({
     '28': {
       id: '28',
       selector: 'li',
+      parentNode: '27',
+      childNodes: [],
       declarations: {
         fonts: {
           fontFamily: '0',
