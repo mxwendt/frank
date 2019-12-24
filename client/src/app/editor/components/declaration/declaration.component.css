@@ -58,6 +58,8 @@ ul.value-overlay > li {
     white-space: nowrap;
     padding: 5px 5px;
     position: relative;
+    font-size: var(--text-size);
+    line-height: var(--text-leading);
 }
 
 ul.value-overlay > li:hover {
