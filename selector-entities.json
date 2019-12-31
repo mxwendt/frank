@@ -1,0 +1,99 @@
+{
+    "ids": [
+        "0",
+        "1",
+        "2",
+        "3"
+    ],
+    "entities": {
+        "0": {
+            "id": "0",
+            "selector": "body",
+            "type": "element",
+            "declarations": {
+                "fonts": {
+                    "fontFamily": [
+                        {
+                            "value": "0",
+                            "pseudoClass": {
+                                "hover": "0"
+                            }
+                        },
+                        {
+                            "value": "1",
+                            "pseudoClass": {
+                                "hover": "1"
+                            }
+                        }
+                    ],
+                    "fontSize": ["0"],
+                    "fontStyle": ["0"],
+                    "fontVariant": ["0"],
+                    "fontWeight": ["0"],
+                    "lineHeight": ["0"]
+                },
+                "text": {
+                    "letterSpacing": ["0"],
+                    "textAlign": ["0"]
+                }
+            }
+        },
+        "1": {
+            "id": "1",
+            "selector": ".dark-theme",
+            "type": "class",
+            "declarations": {
+                "fonts": {
+                    "fontFamily": ["0"],
+                    "fontSize": ["0"],
+                    "fontStyle": ["0"],
+                    "fontVariant": ["0"],
+                    "fontWeight": ["0"],
+                    "lineHeight": ["0"]
+                },
+                "text": {
+                    "letterSpacing": ["0"],
+                    "textAlign": ["0"]
+                }
+            }
+        },
+        "2": {
+            "id": "2",
+            "selector": "#firstname",
+            "type": "id",
+            "declarations": {
+                "fonts": {
+                    "fontFamily": ["0"],
+                    "fontSize": ["0"],
+                    "fontStyle": ["0"],
+                    "fontVariant": ["0"],
+                    "fontWeight": ["0"],
+                    "lineHeight": ["0"]
+                },
+                "text": {
+                    "letterSpacing": ["0"],
+                    "textAlign": ["0"]
+                }
+            }
+        },
+        "3": {
+            "id": "3",
+            "selector": "[data-label='Firstname']",
+            "type": "attribute",
+            "declarations": {
+                "fonts": {
+                    "fontFamily": ["0"],
+                    "fontSize": ["0"],
+                    "fontStyle": ["0"],
+                    "fontVariant": ["0"],
+                    "fontWeight": ["0"],
+                    "lineHeight": ["0"]
+                },
+                "text": {
+                    "letterSpacing": ["0"],
+                    "textAlign": ["0"]
+                }
+            }
+        }
+    }
+}

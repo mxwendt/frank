@@ -1,0 +1,70 @@
+{
+    "ids": [],
+    "entities": {
+        "0": {
+            "id": "0",
+            "title": "Elements",
+            "selectors": {
+                "root": "0",
+                "children": [
+                    {
+                        "selector": "1",
+                        "level": 1,
+                        "children": []
+                    },
+                    {
+                        "selector": "2",
+                        "level": 1,
+                        "children": []
+                    },
+                    {
+                        "selector": "3",
+                        "level": 1,
+                        "children": []
+                    },
+                    {
+                        "selector": "4",
+                        "level": 1,
+                        "children": [
+                            {
+                                "selector": "5",
+                                "level": 2,
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "1": {
+            "id": "1",
+            "title": "Foo",
+            "selectors": {
+                "root": "0",
+                "children": [
+                    {
+                        "selector": "1",
+                        "children": []
+                    },
+                    {
+                        "selector": "2",
+                        "children": [
+                            {
+                                "selector": "3",
+                                "children": []
+                            },
+                            {
+                                "selector": "5",
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "selector": "4",
+                        "children": []
+                    }
+                ]
+            }
+        }
+    }
+}
