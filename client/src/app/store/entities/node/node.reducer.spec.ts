@@ -1,6 +1,6 @@
-import { reducer, initialState } from './base-elements.reducer';
+import { reducer, initialState } from './node.reducer';
 
-describe('BaseElements Reducer', () => {
+describe('Node Reducer', () => {
   describe('unknown action', () => {
     it('should return the previous state', () => {
       const action = {} as any;

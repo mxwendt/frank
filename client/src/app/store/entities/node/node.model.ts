@@ -1,8 +1,15 @@
-export interface BaseElements {
+export enum Type {
+  ELEMENT = 'Element',
+  CLASS = 'Class',
+  ID = 'ID',
+  UNIVERSAL = 'Universal',
+  ATTRIBUTE = 'Attribute'
+}
+
+export interface Node {
   id: string;
   selector: string;
-  parentNode: string; // id of node entiry
-  childNodes: string[]; // ids of node entities
+  type: Type;
   declarations: {
     fonts: {
       fontFamily: string; // id of font family entity

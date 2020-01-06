@@ -21,7 +21,8 @@ import * as fromTextTransform from '../entities/props/text/text-transform/text-t
 import * as fromWhiteSpace from '../entities/props/text/white-space/white-space.reducer';
 import * as fromWordSpacing from '../entities/props/text/word-spacing/word-spacing.reducer';
 
-import * as fromBaseElements from '../entities/nodes/base-elements/base-elements.reducer';
+import * as fromAbbreviation from '../entities/abbreviation/abbreviation.reducer';
+import * as fromNode from '../entities/node/node.reducer';
 
 
 export interface State {
@@ -37,7 +38,8 @@ export interface State {
   [fromTextTransform.textTransformsFeatureKey]: fromTextTransform.State;
   [fromWhiteSpace.whiteSpacesFeatureKey]: fromWhiteSpace.State;
   [fromWordSpacing.wordSpacingsFeatureKey]: fromWordSpacing.State;
-  [fromBaseElements.baseElementsesFeatureKey]: fromBaseElements.State;
+  [fromAbbreviation.abbreviationsFeatureKey]: fromAbbreviation.State;
+  [fromNode.nodesFeatureKey]: fromNode.State;
 }
 
 export const reducers: ActionReducerMap<State> = {
@@ -53,7 +55,8 @@ export const reducers: ActionReducerMap<State> = {
   [fromTextTransform.textTransformsFeatureKey]: fromTextTransform.reducer,
   [fromWhiteSpace.whiteSpacesFeatureKey]: fromWhiteSpace.reducer,
   [fromWordSpacing.wordSpacingsFeatureKey]: fromWordSpacing.reducer,
-  [fromBaseElements.baseElementsesFeatureKey]: fromBaseElements.reducer,
+  [fromAbbreviation.abbreviationsFeatureKey]: fromAbbreviation.reducer,
+  [fromNode.nodesFeatureKey]: fromNode.reducer,
 };
 
 
@@ -113,5 +116,10 @@ export const selectWordSpaceTotal = createSelector(selectWordSpaceState, fromWor
 
 // nodes
 
-export const selectBaseElementsState = createFeatureSelector<fromBaseElements.State>(fromBaseElements.baseElementsesFeatureKey);
-export const selectAllBaseElements = createSelector(selectBaseElementsState, fromBaseElements.selectAll);
+export const selectNodeState = createFeatureSelector<fromNode.State>(fromNode.nodesFeatureKey);
+export const selectAllNodes = createSelector(selectNodeState, fromNode.selectAll);
+
+// abbreviations
+
+export const selectAbbreviationState = createFeatureSelector<fromAbbreviation.State>(fromAbbreviation.abbreviationsFeatureKey);
+export const selectAllAbbreviations = createSelector(selectAbbreviationState, fromAbbreviation.selectAll);
