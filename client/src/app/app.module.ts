@@ -11,7 +11,7 @@ import { PillComponent } from './components/pill/pill.component';
 import { PreviewComponent } from './components/preview/preview.component';
 import { reducers, metaReducers } from './store/reducers';
 import { environment } from '../environments/environment';
-import { FontFamilyEffects } from './store/entities/font-family/font-family.effects';
+import { FontFamilyEffects } from './store/entities/props/fonts/font-family/font-family.effects';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { VariablesModule } from './variables/variables.module';
 import { EditorModule } from './editor/editor.module';

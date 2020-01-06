@@ -7,12 +7,12 @@ import {
 } from '@ngrx/store';
 import { environment } from '../../../environments/environment';
 
-import * as fromFontFamily from '../../store/entities/font-family/font-family.reducer';
-import * as fromFontSize from '../entities/font-size/font-size.reducer';
-import * as fromLineHeight from '../entities/line-height/line-height.reducer';
-import * as fromFontStyle from '../entities/font-style/font-style.reducer';
-import * as fromFontVariant from '../entities/font-variant/font-variant.reducer';
-import * as fromFontWeight from '../entities/font-weight/font-weight.reducer';
+import * as fromFontFamily from '../entities/props/fonts/font-family/font-family.reducer';
+import * as fromFontSize from '../entities/props/fonts/font-size/font-size.reducer';
+import * as fromLineHeight from '../entities/props/fonts/line-height/line-height.reducer';
+import * as fromFontStyle from '../entities/props/fonts/font-style/font-style.reducer';
+import * as fromFontVariant from '../entities/props/fonts/font-variant/font-variant.reducer';
+import * as fromFontWeight from '../entities/props/fonts/font-weight/font-weight.reducer';
 
 import * as fromLetterSpacing from '../entities/props/text/letter-spacing/letter-spacing.reducer';
 import * as fromTextAlign from '../entities/props/text/text-align/text-align.reducer';

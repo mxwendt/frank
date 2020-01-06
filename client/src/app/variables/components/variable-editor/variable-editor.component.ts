@@ -3,19 +3,18 @@ import { Observable, Subject } from 'rxjs';
 import { Store, select } from '@ngrx/store';
 import { takeUntil } from 'rxjs/operators';
 
-import { loadDefaultValues } from 'src/app/store/actions/vars.actions';
-import { FontFamily } from 'src/app/store/entities/font-family/font-family.model';
-import { FontSize } from 'src/app/store/entities/font-size/font-size.model';
-import { FontStyle } from 'src/app/store/entities/font-style/font-style.model';
-import { FontVariant } from 'src/app/store/entities/font-variant/font-variant.model';
-import { FontWeight } from 'src/app/store/entities/font-weight/font-weight.model';
-import { LineHeight } from 'src/app/store/entities/line-height/line-height.model';
-import { addFontFamily } from 'src/app/store/entities/font-family/font-family.actions';
-import { addFontSize } from 'src/app/store/entities/font-size/font-size.actions';
-import { addFontStyle } from 'src/app/store/entities/font-style/font-style.actions';
-import { addFontVariant } from 'src/app/store/entities/font-variant/font-variant.actions';
-import { addFontWeight } from 'src/app/store/entities/font-weight/font-weight.actions';
-import { addLineHeight } from 'src/app/store/entities/line-height/line-height.actions';
+import { FontFamily } from 'src/app/store/entities/props/fonts/font-family/font-family.model';
+import { FontSize } from 'src/app/store/entities/props/fonts/font-size/font-size.model';
+import { FontStyle } from 'src/app/store/entities/props/fonts/font-style/font-style.model';
+import { FontVariant } from 'src/app/store/entities/props/fonts/font-variant/font-variant.model';
+import { FontWeight } from 'src/app/store/entities/props/fonts/font-weight/font-weight.model';
+import { LineHeight } from 'src/app/store/entities/props/fonts/line-height/line-height.model';
+import { addFontFamily } from 'src/app/store/entities/props/fonts/font-family/font-family.actions';
+import { addFontSize } from 'src/app/store/entities/props/fonts/font-size/font-size.actions';
+import { addFontStyle } from 'src/app/store/entities/props/fonts/font-style/font-style.actions';
+import { addFontVariant } from 'src/app/store/entities/props/fonts/font-variant/font-variant.actions';
+import { addFontWeight } from 'src/app/store/entities/props/fonts/font-weight/font-weight.actions';
+import { addLineHeight } from 'src/app/store/entities/props/fonts/line-height/line-height.actions';
 
 import * as fromRoot from '../../../store/reducers';
 

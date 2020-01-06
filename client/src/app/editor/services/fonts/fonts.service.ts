@@ -5,12 +5,12 @@ import { Update } from '@ngrx/entity';
 
 import { Node } from 'src/app/store/entities/node/node.model';
 import { updateNode } from 'src/app/store/entities/node/node.actions';
-import { FontFamily } from 'src/app/store/entities/font-family/font-family.model';
-import { FontStyle } from 'src/app/store/entities/font-style/font-style.model';
-import { FontSize } from 'src/app/store/entities/font-size/font-size.model';
-import { FontVariant } from 'src/app/store/entities/font-variant/font-variant.model';
-import { FontWeight } from 'src/app/store/entities/font-weight/font-weight.model';
-import { LineHeight } from 'src/app/store/entities/line-height/line-height.model';
+import { FontFamily } from 'src/app/store/entities/props/fonts/font-family/font-family.model';
+import { FontStyle } from 'src/app/store/entities/props/fonts/font-style/font-style.model';
+import { FontSize } from 'src/app/store/entities/props/fonts/font-size/font-size.model';
+import { FontVariant } from 'src/app/store/entities/props/fonts/font-variant/font-variant.model';
+import { FontWeight } from 'src/app/store/entities/props/fonts/font-weight/font-weight.model';
+import { LineHeight } from 'src/app/store/entities/props/fonts/line-height/line-height.model';
 
 import * as fromRoot from '../../../store/reducers';
 
