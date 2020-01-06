@@ -110,9 +110,9 @@ export const selectWhiteSpaceState = createFeatureSelector<fromWhiteSpace.State>
 export const selectAllWhiteSpaces = createSelector(selectWhiteSpaceState, fromWhiteSpace.selectAll);
 export const selectWhiteSpaceTotal = createSelector(selectWhiteSpaceState, fromWhiteSpace.selectTotal);
 
-export const selectWordSpaceState = createFeatureSelector<fromWordSpacing.State>(fromWordSpacing.wordSpacingsFeatureKey);
-export const selectAllWordSpaces = createSelector(selectWordSpaceState, fromWordSpacing.selectAll);
-export const selectWordSpaceTotal = createSelector(selectWordSpaceState, fromWordSpacing.selectTotal);
+export const selectWordSpacingState = createFeatureSelector<fromWordSpacing.State>(fromWordSpacing.wordSpacingsFeatureKey);
+export const selectAllWordSpacings = createSelector(selectWordSpacingState, fromWordSpacing.selectAll);
+export const selectWordSpacingTotal = createSelector(selectWordSpacingState, fromWordSpacing.selectTotal);
 
 // nodes
 

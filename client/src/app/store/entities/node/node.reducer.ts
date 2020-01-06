@@ -32,7 +32,11 @@ export const initialState: State = adapter.getInitialState({
         },
         text: {
           letterSpacing: '0',
-          textAlign: '0'
+          textAlign: '0',
+          textIndent: '0',
+          textTransform: '0',
+          whiteSpace: '0',
+          wordSpacing: '0',
         }
       }
     },
@@ -51,7 +55,11 @@ export const initialState: State = adapter.getInitialState({
         },
         text: {
           letterSpacing: '0',
-          textAlign: '0'
+          textAlign: '0',
+          textIndent: '0',
+          textTransform: '0',
+          whiteSpace: '0',
+          wordSpacing: '0',
         }
       }
     },
@@ -70,7 +78,11 @@ export const initialState: State = adapter.getInitialState({
         },
         text: {
           letterSpacing: '0',
-          textAlign: '0'
+          textAlign: '0',
+          textIndent: '0',
+          textTransform: '0',
+          whiteSpace: '0',
+          wordSpacing: '0',
         }
       }
     },
@@ -89,7 +101,11 @@ export const initialState: State = adapter.getInitialState({
         },
         text: {
           letterSpacing: '0',
-          textAlign: '0'
+          textAlign: '0',
+          textIndent: '0',
+          textTransform: '0',
+          whiteSpace: '0',
+          wordSpacing: '0',
         }
       }
     },
@@ -108,7 +124,11 @@ export const initialState: State = adapter.getInitialState({
         },
         text: {
           letterSpacing: '0',
-          textAlign: '0'
+          textAlign: '0',
+          textIndent: '0',
+          textTransform: '0',
+          whiteSpace: '0',
+          wordSpacing: '0',
         }
       }
     },
@@ -127,7 +147,11 @@ export const initialState: State = adapter.getInitialState({
         },
         text: {
           letterSpacing: '0',
-          textAlign: '0'
+          textAlign: '0',
+          textIndent: '0',
+          textTransform: '0',
+          whiteSpace: '0',
+          wordSpacing: '0',
         }
       }
     },
@@ -146,7 +170,11 @@ export const initialState: State = adapter.getInitialState({
         },
         text: {
           letterSpacing: '0',
-          textAlign: '0'
+          textAlign: '0',
+          textIndent: '0',
+          textTransform: '0',
+          whiteSpace: '0',
+          wordSpacing: '0',
         }
       }
     },
@@ -165,7 +193,11 @@ export const initialState: State = adapter.getInitialState({
         },
         text: {
           letterSpacing: '0',
-          textAlign: '0'
+          textAlign: '0',
+          textIndent: '0',
+          textTransform: '0',
+          whiteSpace: '0',
+          wordSpacing: '0',
         }
       }
     },
@@ -184,7 +216,11 @@ export const initialState: State = adapter.getInitialState({
         },
         text: {
           letterSpacing: '0',
-          textAlign: '0'
+          textAlign: '0',
+          textIndent: '0',
+          textTransform: '0',
+          whiteSpace: '0',
+          wordSpacing: '0',
         }
       }
     },
@@ -203,7 +239,11 @@ export const initialState: State = adapter.getInitialState({
         },
         text: {
           letterSpacing: '0',
-          textAlign: '0'
+          textAlign: '0',
+          textIndent: '0',
+          textTransform: '0',
+          whiteSpace: '0',
+          wordSpacing: '0',
         }
       }
     },
@@ -222,7 +262,11 @@ export const initialState: State = adapter.getInitialState({
         },
         text: {
           letterSpacing: '0',
-          textAlign: '0'
+          textAlign: '0',
+          textIndent: '0',
+          textTransform: '0',
+          whiteSpace: '0',
+          wordSpacing: '0',
         }
       }
     },
@@ -241,7 +285,11 @@ export const initialState: State = adapter.getInitialState({
         },
         text: {
           letterSpacing: '0',
-          textAlign: '0'
+          textAlign: '0',
+          textIndent: '0',
+          textTransform: '0',
+          whiteSpace: '0',
+          wordSpacing: '0',
         }
       }
     },
@@ -260,7 +308,11 @@ export const initialState: State = adapter.getInitialState({
         },
         text: {
           letterSpacing: '0',
-          textAlign: '0'
+          textAlign: '0',
+          textIndent: '0',
+          textTransform: '0',
+          whiteSpace: '0',
+          wordSpacing: '0',
         }
       }
     },
@@ -279,7 +331,11 @@ export const initialState: State = adapter.getInitialState({
         },
         text: {
           letterSpacing: '0',
-          textAlign: '0'
+          textAlign: '0',
+          textIndent: '0',
+          textTransform: '0',
+          whiteSpace: '0',
+          wordSpacing: '0',
         }
       }
     },
@@ -298,7 +354,11 @@ export const initialState: State = adapter.getInitialState({
         },
         text: {
           letterSpacing: '0',
-          textAlign: '0'
+          textAlign: '0',
+          textIndent: '0',
+          textTransform: '0',
+          whiteSpace: '0',
+          wordSpacing: '0',
         }
       }
     },
@@ -317,7 +377,11 @@ export const initialState: State = adapter.getInitialState({
         },
         text: {
           letterSpacing: '0',
-          textAlign: '0'
+          textAlign: '0',
+          textIndent: '0',
+          textTransform: '0',
+          whiteSpace: '0',
+          wordSpacing: '0',
         }
       }
     },
@@ -336,7 +400,11 @@ export const initialState: State = adapter.getInitialState({
         },
         text: {
           letterSpacing: '0',
-          textAlign: '0'
+          textAlign: '0',
+          textIndent: '0',
+          textTransform: '0',
+          whiteSpace: '0',
+          wordSpacing: '0',
         }
       }
     },
@@ -355,7 +423,11 @@ export const initialState: State = adapter.getInitialState({
         },
         text: {
           letterSpacing: '0',
-          textAlign: '0'
+          textAlign: '0',
+          textIndent: '0',
+          textTransform: '0',
+          whiteSpace: '0',
+          wordSpacing: '0',
         }
       }
     },
@@ -374,7 +446,11 @@ export const initialState: State = adapter.getInitialState({
         },
         text: {
           letterSpacing: '0',
-          textAlign: '0'
+          textAlign: '0',
+          textIndent: '0',
+          textTransform: '0',
+          whiteSpace: '0',
+          wordSpacing: '0',
         }
       }
     },
@@ -393,7 +469,11 @@ export const initialState: State = adapter.getInitialState({
         },
         text: {
           letterSpacing: '0',
-          textAlign: '0'
+          textAlign: '0',
+          textIndent: '0',
+          textTransform: '0',
+          whiteSpace: '0',
+          wordSpacing: '0',
         }
       }
     },
@@ -412,7 +492,11 @@ export const initialState: State = adapter.getInitialState({
         },
         text: {
           letterSpacing: '0',
-          textAlign: '0'
+          textAlign: '0',
+          textIndent: '0',
+          textTransform: '0',
+          whiteSpace: '0',
+          wordSpacing: '0',
         }
       }
     },
@@ -431,7 +515,11 @@ export const initialState: State = adapter.getInitialState({
         },
         text: {
           letterSpacing: '0',
-          textAlign: '0'
+          textAlign: '0',
+          textIndent: '0',
+          textTransform: '0',
+          whiteSpace: '0',
+          wordSpacing: '0',
         }
       }
     },
@@ -450,7 +538,11 @@ export const initialState: State = adapter.getInitialState({
         },
         text: {
           letterSpacing: '0',
-          textAlign: '0'
+          textAlign: '0',
+          textIndent: '0',
+          textTransform: '0',
+          whiteSpace: '0',
+          wordSpacing: '0',
         }
       }
     },
@@ -469,7 +561,11 @@ export const initialState: State = adapter.getInitialState({
         },
         text: {
           letterSpacing: '0',
-          textAlign: '0'
+          textAlign: '0',
+          textIndent: '0',
+          textTransform: '0',
+          whiteSpace: '0',
+          wordSpacing: '0',
         }
       }
     },
@@ -488,7 +584,11 @@ export const initialState: State = adapter.getInitialState({
         },
         text: {
           letterSpacing: '0',
-          textAlign: '0'
+          textAlign: '0',
+          textIndent: '0',
+          textTransform: '0',
+          whiteSpace: '0',
+          wordSpacing: '0',
         }
       }
     },
@@ -507,7 +607,11 @@ export const initialState: State = adapter.getInitialState({
         },
         text: {
           letterSpacing: '0',
-          textAlign: '0'
+          textAlign: '0',
+          textIndent: '0',
+          textTransform: '0',
+          whiteSpace: '0',
+          wordSpacing: '0',
         }
       }
     },
@@ -526,7 +630,11 @@ export const initialState: State = adapter.getInitialState({
         },
         text: {
           letterSpacing: '0',
-          textAlign: '0'
+          textAlign: '0',
+          textIndent: '0',
+          textTransform: '0',
+          whiteSpace: '0',
+          wordSpacing: '0',
         }
       }
     },
@@ -545,7 +653,11 @@ export const initialState: State = adapter.getInitialState({
         },
         text: {
           letterSpacing: '0',
-          textAlign: '0'
+          textAlign: '0',
+          textIndent: '0',
+          textTransform: '0',
+          whiteSpace: '0',
+          wordSpacing: '0',
         }
       }
     }

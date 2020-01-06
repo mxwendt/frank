@@ -3,6 +3,10 @@
     <div class="prop-label">&nbsp;</div>
     <div class="prop-label">letter-spacing</div>
     <div class="prop-label">text-align</div>
+    <div class="prop-label">text-indent</div>
+    <div class="prop-label">text-transform</div>
+    <div class="prop-label">white-space</div>
+    <div class="prop-label">word-spacing</div>
 
     <ng-container *ngFor="let node of (nodes$ | async)">
         
@@ -10,6 +14,10 @@
         
         <app-declaration (onUpdate)="update($event, node, 'letterSpacing')" [values]="letterSpacingValues" [initialValue]="node.declarations.text.letterSpacing" prop="letter-spacing"></app-declaration>
         <app-declaration (onUpdate)="update($event, node, 'textAlign')" [values]="textAlignValues" [initialValue]="node.declarations.text.textAlign" prop="text-align"></app-declaration>
+        <app-declaration (onUpdate)="update($event, node, 'textIndent')" [values]="textIndentValues" [initialValue]="node.declarations.text.textIndent" prop="text-indent"></app-declaration>
+        <app-declaration (onUpdate)="update($event, node, 'textTransform')" [values]="textTransformValues" [initialValue]="node.declarations.text.textTransform" prop="text-transform"></app-declaration>
+        <app-declaration (onUpdate)="update($event, node, 'whiteSpace')" [values]="whiteSpaceValues" [initialValue]="node.declarations.text.whiteSpace" prop="white-space"></app-declaration>
+        <app-declaration (onUpdate)="update($event, node, 'wordSpacing')" [values]="wordSpacingValues" [initialValue]="node.declarations.text.wordSpacing" prop="word-spacing"></app-declaration>
     
     </ng-container>
 

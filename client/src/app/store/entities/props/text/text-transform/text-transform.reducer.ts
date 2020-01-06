@@ -13,6 +13,37 @@ export const adapter: EntityAdapter<TextTransform> = createEntityAdapter<TextTra
 
 export const initialState: State = adapter.getInitialState({
   // additional entity state properties
+
+  // default values
+  ids: ['0', '1', '2', '3', '4'],
+  entities: {
+    '0': {
+      id: '0',
+      value: 'none',
+      defaultValue: true
+    },
+    '1': {
+      id: '1',
+      value: 'capitalize',
+      defaultValue: true
+    },
+    '2': {
+      id: '2',
+      value: 'uppercase',
+      defaultValue: true
+    },
+    '3': {
+      id: '3',
+      value: 'lowercase',
+      defaultValue: true
+    },
+    '4': {
+      id: '4',
+      value: 'inherit',
+      defaultValue: true
+    }
+  }
+
 });
 
 const textTransformReducer = createReducer(

@@ -13,6 +13,24 @@ export const adapter: EntityAdapter<WordSpacing> = createEntityAdapter<WordSpaci
 
 export const initialState: State = adapter.getInitialState({
   // additional entity state properties
+  
+  // default values
+  ids: ['0', '1'],
+  entities: {
+    '0': {
+      id: '0',
+      value: 'normal',
+      unit: null,
+      defaultValue: true
+    },
+    '1': {
+      id: '1',
+      value: 'inherit',
+      unit: null,
+      defaultValue: true
+    }
+  }
+
 });
 
 const wordSpacingReducer = createReducer(

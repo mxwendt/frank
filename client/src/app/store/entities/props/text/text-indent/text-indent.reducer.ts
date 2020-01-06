@@ -13,6 +13,18 @@ export const adapter: EntityAdapter<TextIndent> = createEntityAdapter<TextIndent
 
 export const initialState: State = adapter.getInitialState({
   // additional entity state properties
+
+  // default values
+  ids: ['0'],
+  entities: {
+    '0': {
+      id: '0',
+      value: 0,
+      unit: null,
+      defaultValue: true
+    }
+  }
+
 });
 
 const textIndentReducer = createReducer(
