@@ -15,12 +15,13 @@ export const initialState: State = adapter.getInitialState({
   // additional entity state properties
 
   // default values
-  ids: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27'],
+  ids: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28'],
   entities: {
     '0': {
       id: '0',
       selector: 'body',
       type: Type.ELEMENT,
+      level: 0,
       declarations: {
         fonts: {
           fontFamily: '0',
@@ -44,6 +45,7 @@ export const initialState: State = adapter.getInitialState({
       id: '1',
       selector: 'article',
       type: Type.ELEMENT,
+      level: 1,
       declarations: {
         fonts: {
           fontFamily: '0',
@@ -67,6 +69,7 @@ export const initialState: State = adapter.getInitialState({
       id: '2',
       selector: 'footer',
       type: Type.ELEMENT,
+      level: 1,
       declarations: {
         fonts: {
           fontFamily: '0',
@@ -90,6 +93,7 @@ export const initialState: State = adapter.getInitialState({
       id: '3',
       selector: 'header',
       type: Type.ELEMENT,
+      level: 1,
       declarations: {
         fonts: {
           fontFamily: '0',
@@ -113,6 +117,7 @@ export const initialState: State = adapter.getInitialState({
       id: '4',
       selector: 'h1',
       type: Type.ELEMENT,
+      level: 1,
       declarations: {
         fonts: {
           fontFamily: '0',
@@ -136,6 +141,7 @@ export const initialState: State = adapter.getInitialState({
       id: '5',
       selector: 'h2',
       type: Type.ELEMENT,
+      level: 1,
       declarations: {
         fonts: {
           fontFamily: '0',
@@ -159,6 +165,7 @@ export const initialState: State = adapter.getInitialState({
       id: '6',
       selector: 'h3',
       type: Type.ELEMENT,
+      level: 1,
       declarations: {
         fonts: {
           fontFamily: '0',
@@ -182,6 +189,7 @@ export const initialState: State = adapter.getInitialState({
       id: '7',
       selector: 'h4',
       type: Type.ELEMENT,
+      level: 1,
       declarations: {
         fonts: {
           fontFamily: '0',
@@ -205,6 +213,7 @@ export const initialState: State = adapter.getInitialState({
       id: '8',
       selector: 'h5',
       type: Type.ELEMENT,
+      level: 1,
       declarations: {
         fonts: {
           fontFamily: '0',
@@ -228,6 +237,7 @@ export const initialState: State = adapter.getInitialState({
       id: '9',
       selector: 'h6',
       type: Type.ELEMENT,
+      level: 1,
       declarations: {
         fonts: {
           fontFamily: '0',
@@ -251,6 +261,7 @@ export const initialState: State = adapter.getInitialState({
       id: '10',
       selector: 'hgroup',
       type: Type.ELEMENT,
+      level: 1,
       declarations: {
         fonts: {
           fontFamily: '0',
@@ -274,6 +285,7 @@ export const initialState: State = adapter.getInitialState({
       id: '11',
       selector: 'main',
       type: Type.ELEMENT,
+      level: 1,
       declarations: {
         fonts: {
           fontFamily: '0',
@@ -297,6 +309,7 @@ export const initialState: State = adapter.getInitialState({
       id: '12',
       selector: 'nav',
       type: Type.ELEMENT,
+      level: 1,
       declarations: {
         fonts: {
           fontFamily: '0',
@@ -320,6 +333,7 @@ export const initialState: State = adapter.getInitialState({
       id: '13',
       selector: 'section',
       type: Type.ELEMENT,
+      level: 1,
       declarations: {
         fonts: {
           fontFamily: '0',
@@ -343,6 +357,7 @@ export const initialState: State = adapter.getInitialState({
       id: '14',
       selector: 'blockquote',
       type: Type.ELEMENT,
+      level: 1,
       declarations: {
         fonts: {
           fontFamily: '0',
@@ -366,6 +381,7 @@ export const initialState: State = adapter.getInitialState({
       id: '15',
       selector: 'dir',
       type: Type.ELEMENT,
+      level: 1,
       declarations: {
         fonts: {
           fontFamily: '0',
@@ -389,6 +405,7 @@ export const initialState: State = adapter.getInitialState({
       id: '16',
       selector: 'div',
       type: Type.ELEMENT,
+      level: 1,
       declarations: {
         fonts: {
           fontFamily: '0',
@@ -412,6 +429,7 @@ export const initialState: State = adapter.getInitialState({
       id: '17',
       selector: 'dl',
       type: Type.ELEMENT,
+      level: 1,
       declarations: {
         fonts: {
           fontFamily: '0',
@@ -435,6 +453,7 @@ export const initialState: State = adapter.getInitialState({
       id: '18',
       selector: 'dt',
       type: Type.ELEMENT,
+      level: 1,
       declarations: {
         fonts: {
           fontFamily: '0',
@@ -458,6 +477,7 @@ export const initialState: State = adapter.getInitialState({
       id: '19',
       selector: 'dd',
       type: Type.ELEMENT,
+      level: 1,
       declarations: {
         fonts: {
           fontFamily: '0',
@@ -481,6 +501,7 @@ export const initialState: State = adapter.getInitialState({
       id: '20',
       selector: 'figure',
       type: Type.ELEMENT,
+      level: 1,
       declarations: {
         fonts: {
           fontFamily: '0',
@@ -504,6 +525,7 @@ export const initialState: State = adapter.getInitialState({
       id: '21',
       selector: 'figcaption',
       type: Type.ELEMENT,
+      level: 1,
       declarations: {
         fonts: {
           fontFamily: '0',
@@ -527,6 +549,7 @@ export const initialState: State = adapter.getInitialState({
       id: '22',
       selector: 'hr',
       type: Type.ELEMENT,
+      level: 1,
       declarations: {
         fonts: {
           fontFamily: '0',
@@ -550,6 +573,7 @@ export const initialState: State = adapter.getInitialState({
       id: '23',
       selector: 'ol',
       type: Type.ELEMENT,
+      level: 1,
       declarations: {
         fonts: {
           fontFamily: '0',
@@ -573,6 +597,7 @@ export const initialState: State = adapter.getInitialState({
       id: '24',
       selector: 'li',
       type: Type.ELEMENT,
+      level: 2,
       declarations: {
         fonts: {
           fontFamily: '0',
@@ -596,6 +621,7 @@ export const initialState: State = adapter.getInitialState({
       id: '25',
       selector: 'p',
       type: Type.ELEMENT,
+      level: 1,
       declarations: {
         fonts: {
           fontFamily: '0',
@@ -619,6 +645,7 @@ export const initialState: State = adapter.getInitialState({
       id: '26',
       selector: 'pre',
       type: Type.ELEMENT,
+      level: 1,
       declarations: {
         fonts: {
           fontFamily: '0',
@@ -642,6 +669,7 @@ export const initialState: State = adapter.getInitialState({
       id: '27',
       selector: 'ul',
       type: Type.ELEMENT,
+      level: 1,
       declarations: {
         fonts: {
           fontFamily: '0',
@@ -660,7 +688,31 @@ export const initialState: State = adapter.getInitialState({
           wordSpacing: '0',
         }
       }
-    }
+    },
+    '28': {
+      id: '28',
+      selector: 'li',
+      type: Type.ELEMENT,
+      level: 2,
+      declarations: {
+        fonts: {
+          fontFamily: '0',
+          fontSize: '0',
+          fontStyle: '0',
+          fontVariant: '0',
+          fontWeight: '0',
+          lineHeight: '0'
+        },
+        text: {
+          letterSpacing: '0',
+          textAlign: '0',
+          textIndent: '0',
+          textTransform: '0',
+          whiteSpace: '0',
+          wordSpacing: '0',
+        }
+      }
+    },
 
   }
   

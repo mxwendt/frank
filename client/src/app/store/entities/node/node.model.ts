@@ -10,6 +10,7 @@ export interface Node {
   id: string;
   selector: string;
   type: Type;
+  level: number;
   declarations: {
     fonts: {
       fontFamily: string; // id of font family entity

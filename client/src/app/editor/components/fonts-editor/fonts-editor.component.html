@@ -9,7 +9,8 @@
     <div class="prop-label">line-height</div>
 
     <ng-container *ngFor="let node of (nodes$ | async)">
-        <app-node [selector]="node.selector"></app-node>
+        
+        <app-node [selector]="node.selector" [ngStyle]="{'marginLeft': (node.level * 30) + 'px'}"></app-node>
         
         <app-declaration (onUpdate)="update($event, node, 'fontFamily')" [values]="fontFamilyValues" [initialValue]="node.declarations.fonts.fontFamily" prop="font-family"></app-declaration>
         <app-declaration (onUpdate)="update($event, node, 'fontSize')" [values]="fontSizeValues" [initialValue]="node.declarations.fonts.fontSize" prop="font-size" unit="px"></app-declaration>

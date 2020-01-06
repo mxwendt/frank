@@ -10,7 +10,7 @@
 
     <ng-container *ngFor="let node of (nodes$ | async)">
         
-        <app-node [selector]="node.selector"></app-node>
+        <app-node [selector]="node.selector" [ngStyle]="{'marginLeft': (node.level * 30) + 'px'}"></app-node>
         
         <app-declaration (onUpdate)="update($event, node, 'letterSpacing')" [values]="letterSpacingValues" [initialValue]="node.declarations.text.letterSpacing" prop="letter-spacing"></app-declaration>
         <app-declaration (onUpdate)="update($event, node, 'textAlign')" [values]="textAlignValues" [initialValue]="node.declarations.text.textAlign" prop="text-align"></app-declaration>
