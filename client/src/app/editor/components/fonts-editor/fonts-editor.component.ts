@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FontsService } from '../../services/fonts/fonts.service';
 import { Observable, Subject } from 'rxjs';
-import { BaseElements } from '../../../store/entities/nodes/base-elements/base-elements.model';
+import { Node } from 'src/app/store/entities/node/node.model';
 import { FontFamily } from '../../../store/entities/font-family/font-family.model';
 import { takeUntil } from 'rxjs/operators';
 import { FontSize } from 'src/app/store/entities/font-size/font-size.model';
@@ -20,9 +20,9 @@ import * as fromRoot from '../../../store/reducers';
 })
 export class FontsEditorComponent implements OnInit, OnDestroy {
 
-    private unsubscribe$;
+    private unsubscribe$: Subject<any>;
 
-    baseElements$: Observable<BaseElements[]>;
+    nodes$: Observable<Node[]>;
 
     fontFamilies$: Observable<FontFamily[]>;
     fontSizes$: Observable<FontSize[]>;
@@ -44,8 +44,8 @@ export class FontsEditorComponent implements OnInit, OnDestroy {
     ) {
         this.unsubscribe$ = new Subject();
 
-        this.baseElements$ = this.store.pipe(
-            select(fromRoot.selectAllBaseElements),
+        this.nodes$ = this.store.pipe(
+            select(fromRoot.selectAllNodes),
             takeUntil(this.unsubscribe$)
         )
 
@@ -112,8 +112,8 @@ export class FontsEditorComponent implements OnInit, OnDestroy {
         this.unsubscribe$.complete();
     }
 
-    updateElement(id: string, element: BaseElements, type: string) {
-        this.fontsService.updateElement(id, element, type);
+    update(id: string, node: Node, type: string) {
+        this.fontsService.updateNode(id, node, type);
     }
 
 }

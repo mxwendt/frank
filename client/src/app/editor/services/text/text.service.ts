@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Update } from '@ngrx/entity';
 
-import { BaseElements } from 'src/app/store/entities/nodes/base-elements/base-elements.model';
-import { updateBaseElements } from 'src/app/store/entities/nodes/base-elements/base-elements.actions';
+import { Node } from 'src/app/store/entities/node/node.model';
+import { updateNode } from 'src/app/store/entities/node/node.actions';
 
 import * as fromRoot from '../../../store/reducers';
 
@@ -16,7 +16,7 @@ export class TextService {
         private store: Store<fromRoot.State>
     ) { }
 
-    updateElement(id: string, element: BaseElements, type: string) {
+    updateNode(id: string, node: Node, type: string) {
         let textProp = null;
 
         switch (type) {
@@ -33,21 +33,21 @@ export class TextService {
 
         if (textProp === null) return;
 
-        const update: Update<BaseElements> = {
-            id: element.id,
+        const update: Update<Node> = {
+            id: node.id,
             changes: {
                 declarations: {
                     fonts: {
-                        ...element.declarations.fonts
+                        ...node.declarations.fonts
                     },
                     text: {
-                        ...element.declarations.text,
+                        ...node.declarations.text,
                         ...textProp
                     }
                 }
             }
         };
 
-        this.store.dispatch(updateBaseElements({ baseElements: update }))
+        this.store.dispatch(updateNode({ node: update }))
     }
 }

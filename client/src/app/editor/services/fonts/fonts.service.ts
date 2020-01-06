@@ -3,8 +3,8 @@ import { Observable } from 'rxjs';
 import { Store, select } from '@ngrx/store';
 import { Update } from '@ngrx/entity';
 
-import { BaseElements } from 'src/app/store/entities/nodes/base-elements/base-elements.model';
-import { updateBaseElements } from 'src/app/store/entities/nodes/base-elements/base-elements.actions';
+import { Node } from 'src/app/store/entities/node/node.model';
+import { updateNode } from 'src/app/store/entities/node/node.actions';
 import { FontFamily } from 'src/app/store/entities/font-family/font-family.model';
 import { FontStyle } from 'src/app/store/entities/font-style/font-style.model';
 import { FontSize } from 'src/app/store/entities/font-size/font-size.model';
@@ -59,7 +59,7 @@ export class FontsService {
         );
     }
 
-    updateElement(id: string, element: BaseElements, type: string) {
+    updateNode(id: string, node: Node, type: string) {
         let fontProp = null;
 
         switch (type) {
@@ -88,21 +88,21 @@ export class FontsService {
 
         if (fontProp === null) return;
 
-        const update: Update<BaseElements> = {
-            id: element.id,
+        const update: Update<Node> = {
+            id: node.id,
             changes: {
                 declarations: {
                     fonts: {
-                        ...element.declarations.fonts,
+                        ...node.declarations.fonts,
                         ...fontProp
                     },
                     text: {
-                        ...element.declarations.text
+                        ...node.declarations.text
                     }
                 }
             }
         };
 
-        this.store.dispatch(updateBaseElements({ baseElements: update }))
+        this.store.dispatch(updateNode({ node: update }))
     }
 }

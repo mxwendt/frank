@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subject, Observable } from 'rxjs';
-import { BaseElements } from 'src/app/store/entities/nodes/base-elements/base-elements.model';
+import { Node } from 'src/app/store/entities/node/node.model';
 import { LetterSpacing } from 'src/app/store/entities/props/text/letter-spacing/letter-spacing.model';
 import { TextAlign } from 'src/app/store/entities/props/text/text-align/text-align.model';
 import { TextService } from '../../services/text/text.service';
@@ -16,9 +16,9 @@ import * as fromRoot from '../../../store/reducers';
 })
 export class TextEditorComponent implements OnInit, OnDestroy {
 
-    private unsubscribe$;
+    private unsubscribe$: Subject<any>;
 
-    baseElements$: Observable<BaseElements[]>;
+    nodes$: Observable<Node[]>;
 
     letterSpacing$: Observable<LetterSpacing[]>;
     textAlign$: Observable<TextAlign[]>;
@@ -31,16 +31,16 @@ export class TextEditorComponent implements OnInit, OnDestroy {
         private textService: TextService
     ) {
         this.unsubscribe$ = new Subject();
-        
-        this.baseElements$ = this.store.pipe(
-            select(fromRoot.selectAllBaseElements),
+
+        this.nodes$ = this.store.pipe(
+            select(fromRoot.selectAllNodes),
             takeUntil(this.unsubscribe$)
-        )
+        );
 
         this.letterSpacing$ = this.store.pipe(
             select(fromRoot.selectAllLetterSpacings),
             takeUntil(this.unsubscribe$)
-            );
+        );
             
         this.textAlign$ = this.store.pipe(
             select(fromRoot.selectAllTextAligns),
@@ -63,8 +63,8 @@ export class TextEditorComponent implements OnInit, OnDestroy {
         this.unsubscribe$.complete();
     }
 
-    updateElement(id: string, element: BaseElements, type: string) {
-        this.textService.updateElement(id, element, type);
+    update(id: string, node: Node, type: string) {
+        this.textService.updateNode(id, node, type);
     }
 
 }

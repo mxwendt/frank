@@ -4,12 +4,12 @@
     <div class="prop-label">letter-spacing</div>
     <div class="prop-label">text-align</div>
 
-    <ng-container *ngFor="let baseElement of (baseElements$ | async)">
+    <ng-container *ngFor="let node of (nodes$ | async)">
         
-        <app-node [selector]="baseElement.selector"></app-node>
+        <app-node [selector]="node.selector"></app-node>
         
-        <app-declaration (onUpdate)="updateElement($event, baseElement, 'letterSpacing')" [values]="letterSpacingValues" [initialValue]="baseElement.declarations.text.letterSpacing" prop="letter-spacing"></app-declaration>
-        <app-declaration (onUpdate)="updateElement($event, baseElement, 'textAlign')" [values]="textAlignValues" [initialValue]="baseElement.declarations.text.textAlign" prop="text-align"></app-declaration>
+        <app-declaration (onUpdate)="update($event, node, 'letterSpacing')" [values]="letterSpacingValues" [initialValue]="node.declarations.text.letterSpacing" prop="letter-spacing"></app-declaration>
+        <app-declaration (onUpdate)="update($event, node, 'textAlign')" [values]="textAlignValues" [initialValue]="node.declarations.text.textAlign" prop="text-align"></app-declaration>
     
     </ng-container>
 
