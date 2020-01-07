@@ -1,4 +1,4 @@
-<div (click)="toggleEditMode()" class="value">{{ selectedValue }}<span *ngIf="unit" class="unit"> {{ unit }}</span></div>
+<div (click)="toggleEditMode()" class="value" [ngClass]="{'inherited': selectedValue === values[0]}">{{ selectedValue }}<span *ngIf="unit" class="unit"> {{ unit }}</span></div>
 <ul *ngIf="editMode" class="value-overlay">
     <li *ngFor="let value of values; let i = index" (click)="updateValue(value, i)" [title]="prop">{{ value }}<span *ngIf="unit" class="unit"> {{ unit }}</span></li>
 </ul>

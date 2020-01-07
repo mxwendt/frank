@@ -61,5 +61,5 @@ li {
 }
 
 .inherited {
-    color: #C4C4C4;
+    color: var(--color-ayu-petrol-light);
 }
